@@ -241,6 +241,28 @@ p {
   border: 0;
 }
 
+/* ---------- Scroll reveal (src/components/RevealOnScroll.tsx) ----------
+   Fade + slight rise, once per element. Attribute + class selector so it wins over
+   component transitions while running; the classes are removed when it finishes. */
+.reveal-pending main,
+.reveal-pending footer {
+  opacity: 0;
+}
+
+.reveal.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

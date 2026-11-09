@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/content/seo";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
@@ -8,10 +9,7 @@ import { NavyBand } from "@/components/ui/NavyBand";
 import { Ventures } from "@/components/sections/Ventures";
 import { investments as v, investmentsLogo } from "@/content/investments";
 
-export const metadata: Metadata = {
-  title: "השקעות וטכנולוגיה | האחים מאיה",
-  description: v.hero.body,
-};
+export const metadata: Metadata = pageMetadata("השקעות וטכנולוגיה | האחים מאיה", v.hero.body, "/investments");
 
 export default function InvestmentsPage() {
   return (

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/content/seo";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
@@ -8,10 +9,7 @@ import { CardSection } from "@/components/ui/CardSection";
 import { NavyBand } from "@/components/ui/NavyBand";
 import { construction as c, constructionLogo } from "@/content/construction";
 
-export const metadata: Metadata = {
-  title: "בנייה ויזמות נדל״ן | האחים מאיה",
-  description: c.hero.body,
-};
+export const metadata: Metadata = pageMetadata("בנייה ויזמות נדל״ן | האחים מאיה", c.hero.body, "/construction");
 
 export default function ConstructionPage() {
   return (

@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Heebo, Inter } from "next/font/google";
+import { pageMetadata, SITE_URL } from "@/content/seo";
+import { RevealOnScroll, revealBootScript } from "@/components/RevealOnScroll";
 import "./globals.css";
 
 const heebo = Heebo({
@@ -17,8 +19,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "האחים מאיה | רואים רחוק. בונים אחרת.",
-  description: "קבוצת האחים מאיה — נדל״ן, טכנולוגיה והשקעות.",
+  metadataBase: new URL(SITE_URL),
+  ...pageMetadata("האחים מאיה | רואים רחוק. בונים אחרת.", "קבוצת האחים מאיה — נדל״ן, טכנולוגיה והשקעות.", "/"),
 };
 
 export const viewport: Viewport = {
@@ -27,8 +29,13 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="he" dir="rtl" className={`${heebo.variable} ${inter.variable}`}>
-      <body>{children}</body>
+    <html lang="he" dir="rtl" className={`${heebo.variable} ${inter.variable}`} suppressHydrationWarning>
+      <body>
+        {/* Runs before the page paints: hides text until the scroll-reveal is ready */}
+        <script dangerouslySetInnerHTML={{ __html: revealBootScript }} />
+        {children}
+        <RevealOnScroll />
+      </body>
     </html>
   );
 }

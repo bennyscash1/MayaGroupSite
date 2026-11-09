@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/content/seo";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
@@ -9,10 +10,7 @@ import { Steps } from "@/components/sections/Steps";
 import { ContactBand } from "@/components/sections/ContactBand";
 import { fund as f, fundLogo } from "@/content/fund";
 
-export const metadata: Metadata = {
-  title: "קרן מאיה | האחים מאיה",
-  description: f.hero.body,
-};
+export const metadata: Metadata = pageMetadata("קרן מאיה | האחים מאיה", f.hero.body, "/fund");
 
 /** Fund mode: the `theme-fund` wrapper re-maps the design tokens (navy / cream / gold). */
 export default function FundPage() {

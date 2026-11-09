@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/content/seo";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
@@ -11,10 +12,7 @@ import { ContactBand } from "@/components/sections/ContactBand";
 import { constructionLogo } from "@/content/construction";
 import { kish23 as k } from "@/content/kish23";
 
-export const metadata: Metadata = {
-  title: "קיש 23, פתח תקווה | האחים מאיה",
-  description: k.hero.body,
-};
+export const metadata: Metadata = pageMetadata("קיש 23, פתח תקווה | האחים מאיה", k.hero.body, "/construction/kish-23");
 
 export default function Kish23Page() {
   return (

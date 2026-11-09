@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/content/seo";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
@@ -12,10 +13,7 @@ import { Showcase } from "@/components/sections/Showcase";
 import { Partners } from "@/components/sections/Partners";
 import { software as s, softwareLogo } from "@/content/software";
 
-export const metadata: Metadata = {
-  title: "בית תוכנה | האחים מאיה טכנולוגיה",
-  description: "בית תוכנה עם גב — פיתוח, תחזוקה והקצאת מפתחים לארגונים.",
-};
+export const metadata: Metadata = pageMetadata("בית תוכנה | האחים מאיה טכנולוגיה", "בית תוכנה עם גב — פיתוח, תחזוקה והקצאת מפתחים לארגונים.", "/software");
 
 /**
  * Order follows the company deck: who we are → the problem → who it's for →
