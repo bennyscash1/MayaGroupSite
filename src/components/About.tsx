@@ -1,5 +1,6 @@
 import { about } from "@/content/site";
 import { Eyebrow } from "./Eyebrow";
+import { BuildingMark } from "./Icons";
 import styles from "./About.module.css";
 
 export function About() {
@@ -19,11 +20,13 @@ export function About() {
           </p>
         </div>
 
-        <picture className={styles.media}>
-          <source media="(max-width: 900px)" srcSet={about.imageMobile} />
+        <div className={styles.media}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={about.image} alt="" loading="lazy" />
-        </picture>
+          <img src={about.image} alt="" width={about.imageWidth} height={about.imageHeight} loading="lazy" />
+          <span className={styles.badge} aria-hidden="true">
+            <BuildingMark />
+          </span>
+        </div>
       </div>
     </section>
   );

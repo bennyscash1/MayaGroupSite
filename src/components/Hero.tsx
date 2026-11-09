@@ -6,8 +6,11 @@ export function Hero() {
   return (
     <section className={styles.hero} aria-labelledby="hero-title">
       <div className={styles.media} aria-hidden="true">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={hero.image} alt="" fetchPriority="high" />
+        <picture>
+          <source media="(max-width: 900px)" srcSet={hero.imageMobile} />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={hero.image} alt="" fetchPriority="high" />
+        </picture>
       </div>
 
       <p className={styles.sideLabel} aria-hidden="true">

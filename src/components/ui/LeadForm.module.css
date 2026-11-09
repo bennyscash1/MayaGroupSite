@@ -1,0 +1,135 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.field {
+  position: relative;
+  display: block;
+}
+
+.field input {
+  width: 100%;
+  height: 52px;
+  padding-inline: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  color: var(--navy-900);
+  font: var(--type-body);
+  text-align: right;
+  direction: rtl; /* Chrome renders tel/email inputs LTR by default */
+}
+
+.field input::placeholder {
+  color: var(--gray-600);
+  opacity: 1;
+}
+
+.field input:focus-visible {
+  outline: 2px solid var(--sky-300);
+  outline-offset: 1px;
+}
+
+.icon {
+  display: none;
+}
+
+.consent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+  font: var(--type-label);
+  font-weight: 400;
+  color: var(--on-navy-muted);
+  cursor: pointer;
+}
+
+.consent input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--blue-600);
+  flex: 0 0 auto;
+}
+
+.submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 48px;
+  margin-top: 4px;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font: var(--type-button);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.submit:hover {
+  background: var(--btn-bg-hover);
+}
+
+.light .consent {
+  color: var(--text-muted);
+}
+
+.sent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 20px;
+  border: 1px solid var(--white-25);
+  border-radius: var(--radius-md);
+  font: var(--type-body);
+  color: var(--white);
+}
+
+
+/* Desktop on navy: transparent outlined inputs with an icon (per desktop mockups) */
+@media (min-width: 901px) {
+  .dark .field input {
+    height: 44px;
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.6);
+    border-radius: var(--radius-sm);
+    color: var(--white);
+    padding-inline-start: 42px;
+  }
+
+  .dark .field input::placeholder {
+    color: var(--on-navy-muted);
+  }
+
+  .dark .icon {
+    display: block;
+    position: absolute;
+    inset-inline-start: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--white);
+    pointer-events: none;
+  }
+
+}
+
+/* Light surface, desktop: inputs side by side, submit centred under them (Fund page) */
+@media (min-width: 901px) {
+  .light {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 20px;
+  }
+  .light .submit,
+  .light .consent {
+    grid-column: 1 / -1;
+  }
+  .light .field input {
+    height: 48px;
+  }
+}

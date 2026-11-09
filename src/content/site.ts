@@ -4,12 +4,30 @@
  * and the desktop mockup image (layout only).
  */
 
-export const logo = {
-  src: "/images/logo-main.png", // TODO: replace with SVG from the designer
+export type Logo = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  /** Stacked lockup (mark above text): rendered taller so the wordmark stays legible */
+  stacked?: boolean;
+};
+export type LinkItem = { label: string; href: string };
+export type Closing = {
+  /** One sentence, or two lines (2nd line takes the accent colour on desktop) */
+  title: string | readonly string[];
+  /** Optional line under the title */
+  text?: string;
+  button: string;
+  href: string;
+};
+
+export const logo: Logo = {
+  src: "/images/logo-main.png", // PNG only: no vector logo exists in the Figma file
   alt: "האחים מאיה — בנייה ויזמות נדל״ן",
   width: 335,
   height: 95,
-} as const;
+};
 
 export const nav = [
   { label: "הקבוצה", href: "#about" },
@@ -26,6 +44,8 @@ export const hero = {
   sideLabel: "MAYA GROUP / A SHARED VISION",
   mobileCta: "גלו את החטיבות",
   image: "/images/hero.webp",
+  /** Figma mobile hero layer (390×250 @2x) */
+  imageMobile: "/images/hero-mobile.webp",
 } as const;
 
 export type Division = {
@@ -50,7 +70,7 @@ export const divisions: Division[] = [
     number: "01",
     brand: "האחים מאיה",
     title: "בנייה ויזמות נדל״ן",
-    href: "#", // TODO: /construction
+    href: "/construction",
     image: "/images/card-1-construction.webp",
     thumb: "/images/thumb-1.webp",
   },
@@ -58,7 +78,7 @@ export const divisions: Division[] = [
     number: "02",
     brand: "האחים מאיה",
     title: "השקעות וטכנולוגיה",
-    href: "#", // TODO: /investments
+    href: "/investments",
     image: "/images/card-2-investments.webp",
     thumb: "/images/thumb-2.webp",
   },
@@ -66,7 +86,7 @@ export const divisions: Division[] = [
     number: "03",
     brand: "האחים מאיה",
     title: "בית תוכנה",
-    href: "#", // TODO: /software
+    href: "/software",
     image: "/images/card-3-software.webp",
     thumb: "/images/thumb-3.webp",
   },
@@ -74,7 +94,7 @@ export const divisions: Division[] = [
     number: "04",
     brand: "קרן מאיה",
     title: "השקעות והזדמנויות",
-    href: "#", // TODO: /fund
+    href: "/fund",
     image: "/images/card-4-fund.webp",
     thumb: "/images/thumb-4.webp",
   },
@@ -85,8 +105,10 @@ export const about = {
   eyebrow: "אודות הקבוצה",
   titleLines: ["הכול מתחיל", "בחיבור הנכון."],
   bodyLines: ["אנשים, רעיונות ועשייה.", "מחברים ניסיון עם מבט אל העתיד."],
+  /** Clean photo (Figma "About image"); the logo badge is rendered in code */
   image: "/images/about.webp",
-  imageMobile: "/images/about-mobile.webp",
+  imageWidth: 684,
+  imageHeight: 384,
 } as const;
 
 export const activities = {
@@ -95,18 +117,18 @@ export const activities = {
   titleLines: ["מחזון", "למציאות."],
   body: "שלושה תחומים, צוות אחד ותפיסה אחת: לבנות דברים שמחזיקים לאורך זמן.",
   items: [
-    { label: "יזמות ובנייה", href: "#divisions" },
-    { label: "חדשנות וטכנולוגיה", href: "#divisions" },
-    { label: "חיבורים והשקעות", href: "#divisions" },
+    { label: "יזמות ובנייה", href: "/construction" },
+    { label: "חדשנות וטכנולוגיה", href: "/investments" },
+    { label: "חיבורים והשקעות", href: "/fund" },
   ],
   image: "/images/activities.webp",
 } as const;
 
-export const closing = {
+export const closing: Closing = {
   title: "בואו נבנה את המחר.",
   button: "נדבר?",
-  href: "#", // TODO: contact page / mailto / WhatsApp
-} as const;
+  href: "#contact", // TODO: contact page / mailto / WhatsApp
+};
 
 export const footer = {
   backToTop: "חזרה למעלה",

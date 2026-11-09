@@ -1,19 +1,16 @@
 .eyebrow {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 18px;
-  font-weight: 500;
+  gap: 8px; /* Figma: eyebrow row gap */
+  font: var(--type-eyebrow);
   color: var(--text);
-  line-height: 1.2;
 }
 
 .line {
   display: inline-block;
-  width: 48px;
-  height: 2px;
+  width: var(--eyebrow-line-w);
+  height: var(--eyebrow-line-h);
   background: var(--blue-600);
-  margin-inline-end: 8px;
 }
 
 .num {
@@ -22,18 +19,9 @@
 }
 
 .light {
-  color: var(--on-navy-muted);
+  color: var(--on-navy);
 }
 
 .light .line {
   display: none;
-}
-
-@media (max-width: 900px) {
-  .eyebrow {
-    font-size: 15px;
-  }
-  .line {
-    width: 24px;
-  }
 }

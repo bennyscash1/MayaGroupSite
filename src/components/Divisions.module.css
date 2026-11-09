@@ -15,9 +15,7 @@
 .title {
   display: flex;
   flex-direction: column;
-  font-size: 34px;
-  font-weight: 800;
-  line-height: 1.2;
+  font: var(--type-h1);
   color: var(--navy-900);
 }
 
@@ -31,15 +29,15 @@
   padding: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: clamp(16px, 1.8vw, 28px);
+  gap: 20px; /* (derived) */
 }
 
 /* ---------- Desktop card: tall image tile ---------- */
 .card {
   position: relative;
   display: block;
-  aspect-ratio: 393 / 472;
-  border-radius: var(--radius-card);
+  aspect-ratio: 0.82; /* (derived) w:h */
+  border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-card);
   border: 1px solid rgba(255, 255, 255, 0.6);
@@ -48,7 +46,7 @@
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 22px 40px -14px rgba(15, 35, 64, 0.4);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .media,
@@ -65,7 +63,7 @@
 }
 
 .card:hover .media img {
-  transform: scale(1.03);
+  transform: scale(1.05); /* suggested in content.md */
 }
 
 .number {
@@ -75,16 +73,14 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: var(--font-en);
-  font-size: 17px;
-  font-weight: 500;
+  font: var(--type-number);
   color: var(--on-navy);
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
 }
 
 .numberRule {
-  width: 28px;
-  height: 1.5px;
+  width: var(--eyebrow-line-w);
+  height: var(--eyebrow-line-h);
   background: currentColor;
 }
 
@@ -107,7 +103,7 @@
   width: 38px;
   height: 38px;
   border: 1.5px solid var(--navy-900);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   color: var(--navy-900);
   transition: background 0.2s, color 0.2s;
 }
@@ -132,10 +128,6 @@
 
 /* ---------- Mobile: list rows (thumb · text · arrow) ---------- */
 @media (max-width: 900px) {
-  .section {
-    padding-top: 48px;
-  }
-
   .heading {
     position: static;
     width: auto;
@@ -152,33 +144,33 @@
 
   .grid {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 12px;
   }
 
   .card {
     aspect-ratio: auto;
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding: 10px;
-    padding-inline-end: 20px;
+    gap: 12px;
+    padding: 8px;
+    padding-inline-end: 16px;
     background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-card-m);
-    box-shadow: var(--shadow-card-m);
+    border: 0;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
   }
 
   .card:hover {
     transform: none;
-    box-shadow: var(--shadow-card-m);
+    box-shadow: var(--shadow-card);
   }
 
   .media {
     position: relative;
     flex: 0 0 auto;
-    width: 104px;
-    height: 84px;
-    border-radius: 8px;
+    width: 100px;
+    height: 86px;
+    border-radius: var(--radius-sm);
     overflow: hidden;
   }
 
@@ -195,9 +187,8 @@
   }
 
   .textNumber {
-    font-family: var(--font-en);
-    font-size: 13px;
-    color: var(--text-subtle);
+    font: var(--type-number);
+    color: var(--text-muted);
   }
 
   .text {
@@ -214,14 +205,12 @@
   }
 
   .cardTitle {
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 1.25;
+    font: var(--type-h3);
     color: var(--navy-900);
   }
 
   .brand {
-    font-size: 14px;
+    font: var(--type-label);
     color: var(--blue-600);
   }
 

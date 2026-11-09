@@ -1,0 +1,154 @@
+.section {
+  --card-bg: var(--white);
+  --card-line: var(--border);
+  --title: var(--navy-900);
+  --muted: var(--text-muted);
+  --accent: var(--blue-600);
+  padding-top: var(--section-gap);
+}
+
+.dark {
+  --card-bg: var(--navy-card, rgba(255, 255, 255, 0.04));
+  --card-line: var(--white-25);
+  --title: var(--white);
+  --muted: var(--on-navy-muted);
+  --accent: var(--sky-300);
+  margin-top: var(--section-gap);
+  padding-block: var(--section-gap);
+  background: var(--navy-800);
+  color: var(--white);
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 760px;
+  margin-bottom: 32px;
+}
+
+.title {
+  font: var(--type-h1);
+  font-size: 40px;
+  line-height: 48px;
+  color: var(--title);
+}
+
+.subtitle {
+  font: var(--type-body);
+  color: var(--muted);
+}
+
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), 1fr);
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  border: 1px solid var(--card-line);
+  border-radius: var(--radius-lg);
+  background: var(--card-bg);
+}
+
+.section:not(.dark) .card {
+  border-color: transparent;
+  box-shadow: var(--shadow-card);
+}
+
+.marker {
+  font: 700 28px/1 var(--font-en);
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 4px;
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  color: var(--accent);
+}
+
+.cardTitle {
+  font: var(--type-h3);
+  font-size: 20px;
+  line-height: 26px;
+  color: var(--title);
+}
+
+.cardText {
+  font: var(--type-body);
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--muted);
+}
+
+.footnote {
+  margin-top: 24px;
+  font: var(--type-h3);
+  color: var(--accent);
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding-top: 48px;
+  }
+
+  .dark {
+    margin-top: 48px;
+    padding-block: 40px;
+  }
+
+  .head {
+    margin-bottom: 20px;
+    gap: 8px;
+  }
+
+  .title {
+    font: var(--type-h1);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .card {
+    padding: 18px;
+    gap: 6px;
+  }
+
+  .marker {
+    font-size: 22px;
+  }
+
+  .cardTitle {
+    font: var(--type-h3);
+  }
+
+  .cardText {
+    font: var(--type-body);
+  }
+
+  .footnote {
+    margin-top: 16px;
+    font: var(--type-label);
+  }
+}

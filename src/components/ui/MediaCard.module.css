@@ -1,0 +1,135 @@
+.card {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 700 / 440; /* = source crops; keeps the retouched strip under the panel */
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--navy-800);
+  box-shadow: var(--shadow-card);
+  font: inherit;
+  text-align: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Optional top edge (gold in Fund mode) */
+.card::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset-inline: 0;
+  top: 0;
+  height: 2px;
+  background: var(--card-edge, transparent);
+}
+
+.card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.panel {
+  position: absolute;
+  inset-inline: 12px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 72px;
+  padding: 10px 16px 10px 12px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.86);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.title {
+  font: var(--type-h3);
+  font-size: 20px;
+  line-height: 26px;
+  color: var(--navy-900);
+}
+
+.subtitle {
+  font: var(--type-body-sm);
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.arrow {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid var(--navy-900);
+  border-radius: var(--radius-full);
+  color: var(--navy-900);
+  transition: background 0.2s, color 0.2s;
+}
+
+.card:hover .arrow {
+  background: var(--navy-900);
+  color: var(--white);
+}
+
+@media (min-width: 901px) {
+  .mobileOnly {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .card {
+    box-shadow: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+
+  .panel {
+    inset-inline: 10px;
+    bottom: 10px;
+    min-height: 64px;
+    padding: 8px 14px 8px 12px;
+  }
+
+  .title {
+    font: var(--type-h3);
+  }
+
+  .subtitle {
+    font: var(--type-body-sm);
+  }
+
+  .arrow {
+    width: 28px;
+    height: 28px;
+  }
+}

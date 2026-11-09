@@ -1,0 +1,97 @@
+.wrap {
+  position: relative;
+  z-index: 2;
+  margin-top: -42px; /* overlaps the bottom edge of the hero */
+}
+
+.card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 18px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.82);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-card);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 4px 16px;
+}
+
+.item + .item {
+  border-inline-start: 1px solid var(--border);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  color: var(--navy-900);
+}
+
+.label {
+  font: var(--type-h3);
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--navy-900);
+}
+
+.value {
+  margin: 2px 0 0;
+  font: var(--type-label);
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+  .wrap {
+    margin-top: 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .card {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 17px 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    backdrop-filter: none;
+    box-shadow: none;
+  }
+
+  .item {
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 0;
+  }
+
+  .item + .item {
+    border-inline-start: 0;
+  }
+
+  .icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    background: var(--bg-page);
+  }
+
+  .icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .value {
+    font: var(--type-body);
+    line-height: 20px;
+  }
+}

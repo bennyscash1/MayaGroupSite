@@ -1,11 +1,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { contactCta, logo, nav } from "@/content/site";
+import { contactCta, logo as groupLogo, nav as groupNav, type LinkItem, type Logo } from "@/content/site";
 import { ArrowUpLeft, MenuIcon } from "./Icons";
 import styles from "./Header.module.css";
 
-export function Header() {
+type HeaderProps = {
+  logo?: Logo;
+  nav?: readonly LinkItem[];
+  cta?: LinkItem;
+  /** Where the logo links to ("#top" on the homepage, "/" elsewhere) */
+  logoHref?: string;
+  /** Division pages use a light header (desktop mockups 02–06); the homepage uses the blue one */
+  variant?: "group" | "light" | "dark";
+};
+
+export function Header({ logo = groupLogo, nav = groupNav, cta = contactCta, logoHref = "#top", variant = "group" }: HeaderProps) {
   const [open, setOpen] = useState(false);
 
   // Close the mobile menu on Escape
@@ -19,9 +29,9 @@ export function Header() {
   const close = () => setOpen(false);
 
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${variant !== "group" ? styles[variant] : ""}`}>
       <div className={`container ${styles.bar}`}>
-        <a href="#top" className={styles.logo} onClick={close}>
+        <a href={logoHref} className={`${styles.logo} ${logo.stacked ? styles.stacked : ""}`} onClick={close}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={logo.src} alt={logo.alt} width={logo.width} height={logo.height} />
         </a>
@@ -36,8 +46,8 @@ export function Header() {
           </ul>
         </nav>
 
-        <a href={contactCta.href} className={styles.cta}>
-          {contactCta.label}
+        <a href={cta.href} className={styles.cta}>
+          {cta.label}
           <ArrowUpLeft size={16} />
         </a>
 
@@ -63,8 +73,8 @@ export function Header() {
             </li>
           ))}
           <li>
-            <a href={contactCta.href} onClick={close} className={styles.mobileCta}>
-              {contactCta.label}
+            <a href={cta.href} onClick={close} className={styles.mobileCta}>
+              {cta.label}
               <ArrowUpLeft size={16} />
             </a>
           </li>

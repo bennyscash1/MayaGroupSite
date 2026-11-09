@@ -1,0 +1,58 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 28px;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-md);
+  font: var(--type-button);
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+/* Primary — blue (Group mode) */
+.primary {
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+}
+.primary:hover {
+  background: var(--btn-bg-hover);
+}
+
+/* Outline on light backgrounds */
+.outline {
+  border-color: var(--blue-600);
+  color: var(--navy-900);
+}
+.outline:hover {
+  background: var(--navy-900);
+  border-color: var(--navy-900);
+  color: var(--white);
+}
+
+/* Outline on navy backgrounds */
+.outlineLight {
+  border-color: var(--white);
+  color: var(--white);
+}
+.outlineLight:hover {
+  background: var(--white);
+  color: var(--navy-800);
+}
+
+.block-always {
+  display: flex;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .button {
+    min-height: 48px;
+  }
+  .block-mobile {
+    display: flex;
+    width: 100%;
+  }
+}

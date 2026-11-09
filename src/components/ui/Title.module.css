@@ -1,0 +1,31 @@
+.title {
+  display: flex;
+  flex-direction: column;
+}
+
+.display {
+  font: var(--type-display);
+}
+.h1 {
+  font: var(--type-h1);
+}
+.h2 {
+  font: var(--type-h2);
+}
+
+.dark {
+  color: var(--navy-900);
+}
+.light {
+  color: var(--white);
+}
+
+.accent-blue {
+  color: var(--blue-600);
+}
+.accent-sky {
+  color: var(--sky-300);
+}
+.accent-none {
+  color: inherit;
+}

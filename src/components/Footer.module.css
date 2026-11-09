@@ -7,34 +7,76 @@
   align-items: center;
   justify-content: space-between;
   gap: 32px;
-  padding-block: clamp(56px, 6vw, 96px);
+  padding-block: var(--section-gap);
 }
 
 .title {
-  font-size: clamp(28px, 3.4vw, 52px);
-  font-weight: 800;
-  line-height: 1.15;
+  font: var(--type-h2);
   color: var(--navy-900);
+}
+
+.accent {
+  color: var(--blue-600);
+}
+
+.ctaText {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ctaLead {
+  font: var(--type-body);
+  color: var(--text-muted);
+}
+
+.dark .ctaLead {
+  color: var(--on-navy-muted);
+}
+
+.disclaimer {
+  padding-bottom: 28px;
+  font: var(--type-body-sm);
+  color: var(--text-muted);
+}
+
+/* Dark surface (Fund page): navy band */
+.dark {
+  background: var(--navy-800);
+}
+.dark .title {
+  color: var(--white);
+}
+.dark .accent {
+  color: var(--sky-300);
+}
+.dark .bottom::before {
+  background: var(--white-25);
+}
+.dark .backToTop {
+  color: var(--white);
+}
+.dark .disclaimer {
+  color: var(--on-navy-muted);
 }
 
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  min-width: 280px;
-  height: 60px;
+  gap: 12px;
+  min-width: 240px;
+  height: 52px;
   padding-inline: 32px;
-  border-radius: var(--radius-btn-m);
-  background: var(--blue-700);
-  color: var(--on-navy);
-  font-size: 20px;
-  font-weight: 700;
+  border-radius: var(--radius-md);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font: var(--type-button);
   transition: background 0.2s;
 }
 
 .button:hover {
-  background: var(--navy-800);
+  background: var(--btn-bg-hover);
 }
 
 .bottom {
@@ -55,7 +97,7 @@
 }
 
 .logo img {
-  height: 56px;
+  height: 48px;
   width: auto;
 }
 
@@ -63,8 +105,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-size: 17px;
-  font-weight: 700;
+  font: var(--type-button);
   color: var(--blue-600);
 }
 
@@ -80,14 +121,10 @@
     padding-block: 40px 28px;
   }
 
-  .title {
-    font-size: 24px;
-  }
-
   .button {
     min-width: 0;
     height: 48px;
-    font-size: 17px;
+    border-radius: var(--radius-xl); /* Figma: CTA button 14px */
   }
 
   .bottom {
@@ -95,10 +132,27 @@
   }
 
   .logo img {
-    height: 38px;
+    height: 40px;
   }
+}
 
-  .backToTop {
-    font-size: 15px;
+/* Mobile designs show the closing title in one colour */
+@media (max-width: 900px) {
+  .accent {
+    color: inherit;
+  }
+  .dark .accent {
+    color: var(--sky-300);
+  }
+}
+
+/* Stacked division logos (mark above wordmark) */
+.stacked img {
+  height: 72px;
+}
+
+@media (max-width: 900px) {
+  .stacked img {
+    height: 52px;
   }
 }

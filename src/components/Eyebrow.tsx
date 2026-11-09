@@ -1,14 +1,18 @@
 import styles from "./Eyebrow.module.css";
 
-type Props = { number: string; label: string; tone?: "dark" | "light" };
+type Props = { number?: string; label: string; tone?: "dark" | "light"; className?: string };
 
-/** Section label: "—— 02 / אודות הקבוצה" */
-export function Eyebrow({ number, label, tone = "dark" }: Props) {
+/** Section label: "—— 02 / אודות הקבוצה" (number optional: "—— אודות החטיבה") */
+export function Eyebrow({ number, label, tone = "dark", className = "" }: Props) {
   return (
-    <p className={`${styles.eyebrow} ${tone === "light" ? styles.light : ""}`}>
+    <p className={`${styles.eyebrow} ${tone !== "dark" ? styles[tone] : ""} ${className}`}>
       <span className={styles.line} aria-hidden="true" />
-      <span className={styles.num}>{number}</span>
-      <span aria-hidden="true">/</span>
+      {number && (
+        <>
+          <span className={styles.num}>{number}</span>
+          <span aria-hidden="true">/</span>
+        </>
+      )}
       <span>{label}</span>
     </p>
   );
