@@ -1,0 +1,125 @@
+/* Design tokens — sampled from the Figma mobile frame "01 · דף הבית" (real design)
+   and the desktop mockup image. Replace with exact values from tokens.md when available. */
+:root {
+  /* Colors */
+  --navy-900: #0f2340;      /* headings, primary text */
+  --navy-800: #0f2c4c;      /* dark sections (hero, activities) */
+  --navy-hero: #002b46;     /* desktop hero, far side of the gradient */
+  --blue-600: #1f6e9e;      /* accent text, eyebrow line */
+  --blue-700: #1c6a99;      /* primary button */
+  --blue-300: #6cb6e0;      /* accent text on navy */
+  --gold-500: #e9b030;      /* קרן מאיה — estimate, take exact from logo */
+  --bg: #f4f6f9;            /* page background */
+  --bg-header: #cbdcec;     /* desktop header */
+  --surface: #ffffff;
+  --border: #d7dde5;
+  --text: #0f2340;
+  --text-muted: #4b5565;
+  --text-subtle: #626a78;
+  --on-navy: #ffffff;
+  --on-navy-muted: #dbe0e4;
+  --on-navy-line: rgba(255, 255, 255, 0.22);
+
+  /* Type */
+  --font-he: var(--font-heebo), "Heebo", system-ui, sans-serif;
+  --font-en: var(--font-inter), "Inter", system-ui, sans-serif;
+
+  /* Shape */
+  --radius-card: 8px;
+  --radius-card-m: 14px;
+  --radius-btn: 4px;
+  --radius-btn-m: 8px;
+  --shadow-card: 0 10px 24px -8px rgba(15, 35, 64, 0.28), 0 2px 6px rgba(15, 35, 64, 0.08);
+  --shadow-card-m: 0 4px 14px -6px rgba(15, 35, 64, 0.18);
+
+  /* Layout */
+  --container: 1340px;
+  --gutter: clamp(16px, 3.2vw, 48px);
+  --header-h: 96px;
+  --section-gap: clamp(72px, 9vw, 128px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-he);
+  font-size: 18px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue-600);
+  outline-offset: 3px;
+}
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --header-h: 72px;
+  }
+  body {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

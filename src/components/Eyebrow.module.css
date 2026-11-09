@@ -1,0 +1,39 @@
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.line {
+  display: inline-block;
+  width: 48px;
+  height: 2px;
+  background: var(--blue-600);
+  margin-inline-end: 8px;
+}
+
+.num {
+  font-family: var(--font-en);
+  font-weight: 500;
+}
+
+.light {
+  color: var(--on-navy-muted);
+}
+
+.light .line {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .eyebrow {
+    font-size: 15px;
+  }
+  .line {
+    width: 24px;
+  }
+}

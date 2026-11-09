@@ -1,0 +1,144 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg-header);
+}
+
+.bar {
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.logo img {
+  height: 64px;
+  width: auto;
+}
+
+.nav {
+  flex: 1;
+}
+
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav li + li {
+  border-inline-start: 1.5px solid rgba(15, 35, 64, 0.35);
+}
+
+.nav a {
+  display: block;
+  padding: 4px 56px;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--text);
+  transition: color 0.2s;
+}
+
+.nav a:hover {
+  color: var(--blue-600);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding: 10px 26px;
+  border: 1.5px solid var(--blue-600);
+  border-radius: var(--radius-btn);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text);
+  transition: background 0.2s, color 0.2s;
+}
+
+.cta:hover {
+  background: var(--blue-600);
+  color: var(--on-navy);
+}
+
+.menuButton {
+  display: none;
+  margin-inline-start: auto;
+  padding: 8px;
+  background: none;
+  border: 0;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.mobileMenu {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .nav a {
+    padding-inline: 28px;
+  }
+}
+
+@media (max-width: 900px) {
+  .header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+  .bar {
+    gap: 16px;
+  }
+  .logo img {
+    height: 42px;
+  }
+  .nav,
+  .cta {
+    display: none;
+  }
+  .menuButton {
+    display: block;
+  }
+
+  .mobileMenu {
+    display: block;
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 16px 24px -12px rgba(15, 35, 64, 0.2);
+  }
+  .mobileMenu[hidden] {
+    display: none;
+  }
+  .mobileMenu ul {
+    list-style: none;
+    margin: 0;
+    padding-block: 8px 20px;
+  }
+  .mobileMenu li + li {
+    border-top: 1px solid var(--border);
+  }
+  .mobileMenu a {
+    display: block;
+    padding: 16px 0;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .mobileMenu .mobileCta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 12px;
+    padding: 14px;
+    border-radius: var(--radius-btn-m);
+    background: var(--blue-700);
+    color: var(--on-navy);
+  }
+}
