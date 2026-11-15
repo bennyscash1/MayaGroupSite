@@ -125,7 +125,7 @@
   color: var(--text);
 }
 
-/* ---------- Software mode (page 06 · בית תוכנה) ----------
+/* ---------- Software mode (page 06, מאיה טכנולוגיות) ----------
    Darker blues from the company deck (ביתתוכנהמצגת.pptx): deep navy surfaces
    #12182B / #1B2440, cards #27324F, accent blue #2F9BE0, muted text #9FB0C9. */
 .theme-software {
@@ -144,6 +144,58 @@
   --hero-fade: linear-gradient(180deg, rgba(27, 36, 64, 0) 0%, var(--navy-800) 100%);
   --btn-bg: var(--blue-600);
   --btn-bg-hover: var(--blue-650);
+
+  /* ---- Maya Technologies redesign tokens (src/components/software/*) ----
+     Same deck navy + accent blue; every colour, face and size the software
+     components use resolves here. */
+  --sw-ink: #0d1324;              /* deepest surface: hero, contact */
+  --sw-dark: var(--navy-900);     /* dark bands */
+  --sw-dark-raised: #1a2340;      /* tiles and panels on dark */
+  --sw-paper: #f3f5f9;            /* light band */
+  --sw-surface: #fbfcfe;          /* lighter band / cards on paper */
+  --sw-on-dark: #eef2f8;          /* text on dark: 15.7:1 on --sw-dark */
+  --sw-on-dark-muted: #aab8cd;    /* secondary text on dark: 8.8:1 on --sw-dark, 7.7:1 on --sw-dark-raised */
+  --sw-text: var(--navy-900);
+  --sw-text-muted: #4a5468;       /* 7.0:1 on --sw-paper */
+  --sw-accent: #1f5f99;           /* accent on light (6.5:1 on --sw-surface) */
+  --sw-accent-dark: #4aa8e6;      /* accent on dark (6.7:1 on --sw-dark) */
+  --sw-accent-ink: #0d1324;       /* text on the accent button */
+  --sw-line: #dbe1ea;             /* hairlines on light */
+  --sw-line-strong: #c3ccd9;
+  --sw-line-dark: #2b3756;        /* hairlines on dark */
+  --sw-grid-line: rgba(170, 184, 205, 0.09); /* hero grid */
+  --sw-glow: rgba(74, 168, 230, 0.2);        /* hero light, one hue */
+  --sw-scrim: rgba(13, 19, 36, 0.94);        /* image scrim under tile text */
+  --sw-scrim-soft: rgba(13, 19, 36, 0.2);
+  --sw-glass: rgba(18, 24, 43, 0.92);        /* sticky sub-tab bar */
+  --sw-shadow: 0 1px 2px rgba(13, 19, 36, 0.06), 0 12px 32px -16px rgba(13, 19, 36, 0.28);
+  --sw-shadow-dark: 0 18px 40px -20px rgba(0, 0, 0, 0.7);
+  --sw-focus: var(--sw-accent);
+  --sw-focus-dark: #8fd0f5;
+
+  --sw-face: var(--font-he);
+  --sw-face-num: var(--font-en);
+  --sw-display: 800 clamp(2.75rem, 1.4rem + 4.6vw, 5.5rem) / 1.04 var(--sw-face);
+  --sw-display-sm: 800 clamp(2.25rem, 1.3rem + 3vw, 4rem) / 1.06 var(--sw-face);
+  --sw-h2: 800 clamp(1.875rem, 1.25rem + 2vw, 3rem) / 1.12 var(--sw-face);
+  --sw-h3: 700 1.1875rem / 1.35 var(--sw-face);
+  --sw-h3-lg: 700 clamp(1.375rem, 1.1rem + 0.8vw, 1.75rem) / 1.25 var(--sw-face);
+  --sw-lede: 400 clamp(1.0625rem, 0.98rem + 0.35vw, 1.25rem) / 1.6 var(--sw-face);
+  --sw-body: 400 1.0625rem / 1.65 var(--sw-face);
+  --sw-small: 400 1rem / 1.55 var(--sw-face);
+  --sw-label: 500 0.9375rem / 1.4 var(--sw-face);
+  --sw-fine: 400 0.875rem / 1.5 var(--sw-face);
+  --sw-num: 500 0.9375rem / 1 var(--sw-face-num);
+  --sw-num-lg: 300 clamp(2.5rem, 1.8rem + 2vw, 3.5rem) / 1 var(--sw-face-num);
+
+  --sw-r-lg: 20px;
+  --sw-r-md: 14px;
+  --sw-r-sm: 10px;
+  --sw-r-pill: 999px;
+  --sw-section: clamp(72px, 4rem + 4vw, 128px);
+  --sw-gap: clamp(20px, 1rem + 1.2vw, 32px);
+  --sw-measure: 62ch;
+  --sw-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 
   background: var(--bg);
   color: var(--text);

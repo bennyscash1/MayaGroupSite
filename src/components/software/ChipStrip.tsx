@@ -1,4 +1,4 @@
-import { Eyebrow } from "../Eyebrow";
+import { Section, SectionHead, type Tone } from "./Section";
 import { SwIcon, type SwIconName } from "./SwIcon";
 import styles from "./ChipStrip.module.css";
 
@@ -12,35 +12,24 @@ export type ChipStripProps = {
   items: readonly Chip[];
   /** Small print under the chips (e.g. "not a formal certification") */
   note?: string;
+  tone?: Tone;
 };
 
-/** Compact panel with a heading and a wrap of labelled chips (standards, integrations). */
-export function ChipStrip({ id, eyebrow, title, text, items, note }: ChipStripProps) {
+/** Typographic row of labelled chips (standards, integrations), no logos. */
+export function ChipStrip({ id, eyebrow, title, text, items, note, tone = "surface" }: ChipStripProps) {
   return (
-    <section id={id} className={styles.section} aria-labelledby={`${id}-title`}>
-      <div className="container">
-        <div className={styles.panel}>
-          <header className={styles.head}>
-            {eyebrow && <Eyebrow label={eyebrow} />}
-            <h2 id={`${id}-title`} className={styles.title}>
-              {title}
-            </h2>
-            {text && <p className={styles.text}>{text}</p>}
-          </header>
-          <ul className={styles.chips}>
-            {items.map((c) => (
-              <li key={c.label} className={styles.chip}>
-                {c.icon && <SwIcon name={c.icon} size={20} className={styles.icon} />}
-                <span className={styles.chipText}>
-                  <span className={styles.label}>{c.label}</span>
-                  {c.note && <span className={styles.note}>{c.note}</span>}
-                </span>
-              </li>
-            ))}
-          </ul>
-          {note && <p className={styles.small}>{note}</p>}
-        </div>
-      </div>
-    </section>
+    <Section id={id} tone={tone} labelledBy={`${id}-title`} className={styles.section}>
+      <SectionHead id={`${id}-title`} label={eyebrow} title={title} subtitle={text} wide />
+      <ul className={styles.chips}>
+        {items.map((c) => (
+          <li key={c.label} className={styles.chip}>
+            {c.icon && <SwIcon name={c.icon} size={18} className={styles.icon} />}
+            <span className={styles.label}>{c.label}</span>
+            {c.note && <span className={styles.note}>{c.note}</span>}
+          </li>
+        ))}
+      </ul>
+      {note && <p className={styles.small}>{note}</p>}
+    </Section>
   );
 }

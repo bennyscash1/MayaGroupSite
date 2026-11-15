@@ -1,166 +1,92 @@
-.section {
-  padding-top: var(--section-gap);
-}
-
-.head {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-width: 780px;
-  margin-bottom: 32px;
-}
-
-.title {
-  font: var(--type-h1);
-  font-size: 40px;
-  line-height: 48px;
-  color: var(--navy-900);
-}
-
-.subtitle {
-  font: var(--type-body);
-  color: var(--text-muted);
-}
-
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 16px;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 .card {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 24px;
-  border-radius: var(--radius-lg);
-  background: var(--white);
-  box-shadow: var(--shadow-card);
-  border-top: 4px solid var(--blue-600);
+  gap: 16px;
+  padding: clamp(24px, 1rem + 1vw, 32px);
+  border: 1px solid var(--line);
+  border-radius: var(--sw-r-lg);
+  background: var(--raised);
 }
 
-.cardHead {
+.head {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
 }
 
-.icon {
-  flex: none;
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-full);
-  background: var(--navy-800);
-  color: var(--sky-300);
+.title {
+  font: var(--sw-h3-lg);
+  color: var(--fg);
 }
 
-.cardTitle {
-  font: var(--type-h3);
-  font-size: 20px;
-  line-height: 26px;
-  color: var(--navy-900);
-}
-
-.cardText {
-  font: var(--type-body);
-  font-size: 16px;
-  line-height: 26px;
-  color: var(--text-muted);
+.text {
+  font: var(--sw-small);
+  color: var(--fg-muted);
 }
 
 .steps {
-  counter-reset: step;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   list-style: none;
-  margin: 4px 0 0;
+  margin: 8px 0 0;
   padding: 0;
+  counter-reset: flow;
 }
 
 .steps li {
-  counter-increment: step;
   position: relative;
-  padding-inline-start: 40px;
-  padding-bottom: 14px;
-  font: var(--type-body);
-  font-size: 15px;
-  line-height: 22px;
-  color: var(--navy-900);
+  counter-increment: flow;
+  padding-block: 0 20px;
+  padding-inline-start: 44px;
+  font: var(--sw-small);
+  color: var(--fg);
 }
 
 .steps li::before {
-  content: counter(step);
+  content: counter(flow);
   position: absolute;
+  inset-block-start: 0;
   inset-inline-start: 0;
-  top: -2px;
   display: grid;
   place-items: center;
-  width: 26px;
-  height: 26px;
-  border-radius: var(--radius-full);
-  background: color-mix(in srgb, var(--blue-600) 12%, transparent);
-  color: var(--blue-600);
-  font: 600 12px/1 var(--font-en);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  font: var(--sw-num);
+  font-size: 0.8125rem;
+  color: var(--accent);
+  background: var(--raised);
 }
 
-.steps li:not(:last-child)::after {
+/* the track joining the numbers */
+.steps li::after {
   content: "";
   position: absolute;
-  inset-inline-start: 12px;
-  top: 26px;
-  bottom: 0;
-  width: 2px;
-  background: color-mix(in srgb, var(--blue-600) 20%, transparent);
+  inset-block: 30px 2px;
+  inset-inline-start: 13.5px;
+  width: 1px;
+  background: var(--line);
 }
 
-.footnote {
-  margin-top: 24px;
-  font: var(--type-body);
-  color: var(--text-muted);
+.steps li:last-child {
+  padding-block-end: 0;
 }
 
-@media (max-width: 1100px) {
-  .grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 900px) {
-  .section {
-    padding-top: 48px;
-  }
-
-  .head {
-    margin-bottom: 20px;
-    gap: 8px;
-  }
-
-  .title {
-    font: var(--type-h1);
-  }
-
-  .card {
-    padding: 18px;
-  }
-
-  .cardTitle {
-    font: var(--type-h3);
-  }
-
-  .cardText,
-  .steps li {
-    font: var(--type-body);
-  }
-}
-
-@media (max-width: 640px) {
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
+.steps li:last-child::after {
+  display: none;
 }

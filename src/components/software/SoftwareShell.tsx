@@ -1,7 +1,6 @@
 import { Header } from "../Header";
 import { Footer } from "../Footer";
 import { Breadcrumb, type Crumb } from "../ui/Breadcrumb";
-import { ContactBand } from "../sections/ContactBand";
 import type { LeadField } from "../ui/LeadForm";
 import type { Closing, LinkItem } from "@/content/site";
 import {
@@ -14,6 +13,7 @@ import {
   subTabsLabel,
 } from "@/content/software/shared";
 import { SubTabs } from "./SubTabs";
+import { SwContact } from "./SwContact";
 import styles from "./SoftwareShell.module.css";
 
 type Props = {
@@ -34,21 +34,23 @@ type Props = {
 };
 
 /**
- * Frame shared by the five software-hub pages: software header, breadcrumb,
- * sticky sub-tab bar, page content, lead form (#contact) and footer.
+ * Frame shared by the five Maya Technologies pages: header, breadcrumb,
+ * sticky glass sub-tab bar, page content, lead form (#contact) and footer.
  */
 export function SoftwareShell({ path, breadcrumb, back, contact, contactSurface = "dark", closing, children }: Props) {
   const onHub = path === SOFTWARE_HOME;
   return (
     <div className={`theme-software ${styles.root}`}>
+      <a href="#main" className={styles.skip}>
+        דילוג לתוכן הראשי
+      </a>
       <div id="top" />
       <Header logo={softwareLogo} nav={headerNav(onHub)} cta={headerCta} logoHref={onHub ? "/" : SOFTWARE_HOME} variant="light" />
       <Breadcrumb items={breadcrumb} back={back} />
       <SubTabs tabs={subTabs} active={path} label={subTabsLabel} />
-      <main>
+      <main id="main" tabIndex={-1} className={styles.main}>
         {children}
-        <div className={styles.gap} aria-hidden="true" />
-        <ContactBand id="contact" {...contact} surface={contactSurface} />
+        <SwContact id="contact" {...contact} surface={contactSurface} />
       </main>
       <Footer id="closing" logo={softwareLogo} logoHref={onHub ? "/" : SOFTWARE_HOME} closing={closing} back={footerBack} />
     </div>

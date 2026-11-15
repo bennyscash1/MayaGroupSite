@@ -1,0 +1,136 @@
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: var(--sw-r-lg);
+  overflow: hidden;
+  background: var(--raised);
+  transition:
+    transform 0.3s var(--sw-ease),
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: var(--sw-shadow-dark);
+}
+
+.media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-block-end: 1px solid var(--line);
+}
+
+.media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.6s var(--sw-ease);
+}
+
+.card:hover .media img {
+  transform: scale(1.03);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1;
+  padding: clamp(24px, 1rem + 1vw, 32px);
+}
+
+.category {
+  font: var(--sw-label);
+  color: var(--accent);
+}
+
+.name {
+  font: var(--sw-h3-lg);
+  color: var(--fg);
+}
+
+.text {
+  font: var(--sw-small);
+  color: var(--fg-muted);
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+}
+
+.features li {
+  padding: 4px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--sw-r-pill);
+  font: var(--sw-fine);
+  color: var(--fg);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-block-start: auto;
+  padding-block-start: 12px;
+  min-height: 44px;
+  font: var(--sw-label);
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* the link covers the whole card: one target, one link */
+.link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.link:focus-visible {
+  outline: none;
+}
+
+.link:focus-visible::after {
+  outline: 2px solid var(--ring);
+  outline-offset: -2px;
+}
+
+.arrow {
+  transition: transform 0.25s var(--sw-ease);
+}
+
+.card:hover .arrow {
+  transform: translate(-3px, -3px);
+}

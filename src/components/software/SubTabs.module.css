@@ -1,10 +1,27 @@
+/* Sticky glass sub-tab bar. Solid navy where backdrop-filter is missing, so the
+   tab text keeps its contrast on any content scrolling underneath. */
 .bar {
   position: sticky;
   top: var(--header-h);
   z-index: 40;
-  background: var(--navy-900);
-  border-bottom: 1px solid var(--white-25);
-  box-shadow: 0 6px 16px -10px rgba(10, 14, 28, 0.6);
+  background: var(--sw-dark);
+  border-block-end: 1px solid var(--sw-line-dark);
+}
+
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .bar {
+    background: var(--sw-glass);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    backdrop-filter: blur(16px) saturate(1.4);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .bar {
+    background: var(--sw-dark);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
 }
 
 .inner {
@@ -13,10 +30,11 @@
 
 .list {
   display: flex;
-  gap: 4px;
+  gap: 8px;
   list-style: none;
   margin: 0;
-  padding: 0 var(--gutter);
+  /* room for the focus ring above and below the pills */
+  padding: 8px var(--gutter);
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scrollbar-width: none;
@@ -32,56 +50,45 @@
 }
 
 .tab {
-  position: relative;
   display: flex;
   align-items: center;
-  min-height: 52px;
-  padding-inline: 18px;
-  font: var(--type-nav);
-  color: var(--on-navy-muted);
+  min-height: 44px;
+  padding-inline: 20px;
+  border-radius: var(--sw-r-pill);
+  border: 1px solid transparent;
+  font: var(--sw-label);
+  color: var(--sw-on-dark-muted);
   white-space: nowrap;
-  transition: color 0.2s;
-}
-
-.tab::after {
-  content: "";
-  position: absolute;
-  inset-inline: 14px;
-  bottom: 0;
-  height: 3px;
-  border-radius: 3px 3px 0 0;
-  background: transparent;
-  transition: background-color 0.2s;
+  touch-action: manipulation;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .tab:hover {
-  color: var(--white);
+  color: var(--sw-on-dark);
+  background: var(--sw-dark-raised);
 }
 
 .tab[aria-current="page"] {
-  color: var(--white);
+  color: var(--sw-on-dark);
   font-weight: 700;
-}
-
-.tab[aria-current="page"]::after {
-  background: var(--sky-300);
+  background: var(--sw-dark-raised);
+  border-color: var(--sw-accent-dark);
 }
 
 .tab:focus-visible {
-  outline: 2px solid var(--sky-300);
-  outline-offset: -4px;
-  border-radius: var(--radius-md);
+  outline: 2px solid var(--sw-focus-dark);
+  outline-offset: 2px;
 }
 
 @media (max-width: 900px) {
   .list {
-    /* hint that the row scrolls (the far edge fades out) */
-    mask-image: linear-gradient(to left, #000 90%, transparent);
+    gap: 4px;
   }
 
   .tab {
-    min-height: 48px;
-    padding-inline: 14px;
-    font-size: 15px;
+    padding-inline: 16px;
   }
 }

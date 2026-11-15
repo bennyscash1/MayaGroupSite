@@ -85,7 +85,7 @@ export const divisions: Division[] = [
   {
     number: "03",
     brand: "האחים מאיה",
-    title: "בית תוכנה",
+    title: "מאיה טכנולוגיות",
     href: "/software",
     image: "/images/card-3-software.webp",
     thumb: "/images/thumb-3.webp",

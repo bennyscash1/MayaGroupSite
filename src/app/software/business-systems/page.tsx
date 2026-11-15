@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { PageHero } from "@/components/ui/PageHero";
-import { Steps } from "@/components/sections/Steps";
 import { SoftwareShell } from "@/components/software/SoftwareShell";
+import { SwHero } from "@/components/software/SwHero";
+import { SwSteps } from "@/components/software/SwSteps";
 import { CardGrid } from "@/components/software/CardGrid";
 import { ChipStrip } from "@/components/software/ChipStrip";
 import { TopicCards } from "@/components/software/TopicCards";
@@ -15,12 +15,12 @@ export const metadata: Metadata = topicMetadata(SLUG, p.meta.title, p.meta.descr
 export default function BusinessSystemsPage() {
   return (
     <SoftwareShell path={topic(SLUG).href} breadcrumb={topicBreadcrumb(SLUG)} back={topicBack} contact={p.contact} closing={closing}>
-      <PageHero {...p.hero} />
-      <CardGrid {...p.features} />
-      <CardGrid {...p.audience} />
-      <ChipStrip {...p.integrations} />
-      <Steps id="process" title={p.process.title} steps={p.process.steps} />
-      <TopicCards {...otherTopics(SLUG)} />
+      <SwHero {...p.hero} variant="tab" />
+      <CardGrid {...p.features} tone="surface" />
+      <CardGrid {...p.audience} tone="dark" />
+      <ChipStrip {...p.integrations} tone="paper" />
+      <SwSteps id="process" title={p.process.title} steps={p.process.steps} tone="surface" />
+      <TopicCards {...otherTopics(SLUG)} tone="paper" />
     </SoftwareShell>
   );
 }

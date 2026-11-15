@@ -1,0 +1,116 @@
+/* Shared section frame for the Maya Technologies (software) components.
+   Tones alternate light / dark bands for pacing; colours come from .theme-software. */
+
+.section {
+  --fg: var(--sw-text);
+  --fg-muted: var(--sw-text-muted);
+  --accent: var(--sw-accent);
+  --line: var(--sw-line);
+  --raised: var(--sw-surface);
+  --ring: var(--sw-focus);
+  position: relative;
+  padding-block: var(--sw-section);
+  background: var(--sw-paper);
+  color: var(--fg);
+}
+
+.surface {
+  background: var(--sw-surface);
+  --raised: var(--sw-paper);
+}
+
+.dark {
+  --fg: var(--sw-on-dark);
+  --fg-muted: var(--sw-on-dark-muted);
+  --accent: var(--sw-accent-dark);
+  --line: var(--sw-line-dark);
+  --raised: var(--sw-dark-raised);
+  --ring: var(--sw-focus-dark);
+  background: var(--sw-dark);
+}
+
+.section :focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+/* ---- Section heading: label in its own column, heading + lede beside it ---- */
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  margin-block-end: clamp(36px, 2rem + 2vw, 64px);
+}
+
+.label {
+  font: var(--sw-label);
+  color: var(--fg-muted);
+}
+
+.title {
+  font: var(--sw-h2);
+  color: var(--fg);
+  max-width: 22ch;
+  overflow-wrap: break-word;
+  min-width: 0;
+  text-wrap: balance;
+}
+
+.lede {
+  font: var(--sw-lede);
+  color: var(--fg-muted);
+  max-width: var(--sw-measure);
+  text-wrap: pretty;
+}
+
+@media (min-width: 1024px) {
+  .head {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+    column-gap: var(--sw-gap);
+    row-gap: 16px;
+  }
+
+  .label {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    border-block-start: 1px solid var(--line);
+    padding-top: 16px;
+    align-self: start;
+  }
+
+  .title,
+  .lede {
+    grid-column: 2;
+  }
+
+  .headWide .title {
+    max-width: 28ch;
+  }
+}
+
+.footnote {
+  margin-block-start: clamp(28px, 1.5rem + 1vw, 44px);
+  font: var(--sw-body);
+  font-weight: 500;
+  color: var(--fg);
+  max-width: var(--sw-measure);
+  padding-inline-start: 16px;
+  border-inline-start: 2px solid var(--accent);
+}
+
+.icon {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--sw-r-sm);
+  border: 1px solid var(--line);
+  color: var(--accent);
+  flex: none;
+}
+
+.num {
+  font: var(--sw-num);
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}

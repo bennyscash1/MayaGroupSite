@@ -15,7 +15,7 @@ export const SOFTWARE_HOME = "/software";
 
 export const softwareLogo: Logo = {
   src: "/images/logos/logo-software.png",
-  alt: "האחים מאיה — בית תוכנה",
+  alt: "מאיה טכנולוגיות — קבוצת האחים מאיה",
   width: 900,
   height: 580,
   stacked: true,
@@ -96,7 +96,7 @@ export const topic = (slug: TopicSlug) => topics.find((t) => t.slug === slug)!;
 
 /** Sticky sub-tab bar: overview + the four topics */
 export const subTabs: readonly SubTab[] = [{ href: SOFTWARE_HOME, label: "סקירה" }, ...topics.map((t) => ({ href: t.href, label: t.tab }))];
-export const subTabsLabel = "תחומי בית התוכנה";
+export const subTabsLabel = "תחומי מאיה טכנולוגיות";
 
 /** Header nav. On the hub the links are in-page anchors; on topic pages they lead back to the hub. */
 export function headerNav(onHub: boolean): readonly LinkItem[] {
@@ -110,15 +110,15 @@ export function headerNav(onHub: boolean): readonly LinkItem[] {
 }
 export const headerCta: LinkItem = { label: "בואו נדבר", href: "#contact" };
 
-export const hubBreadcrumb: readonly Crumb[] = [{ label: "האחים מאיה", href: "/" }, { label: "בית תוכנה" }];
+export const hubBreadcrumb: readonly Crumb[] = [{ label: "האחים מאיה", href: "/" }, { label: "מאיה טכנולוגיות" }];
 
 export function topicBreadcrumb(slug: TopicSlug): readonly Crumb[] {
   const t = topic(slug);
-  return [{ label: "האחים מאיה", href: "/" }, { label: "בית תוכנה", href: SOFTWARE_HOME }, { label: t.name }];
+  return [{ label: "האחים מאיה", href: "/" }, { label: "מאיה טכנולוגיות", href: SOFTWARE_HOME }, { label: t.name }];
 }
 
 export const hubBack = { label: "חזרה לקבוצה", href: "/" };
-export const topicBack = { label: "לסקירת בית התוכנה", href: SOFTWARE_HOME };
+export const topicBack = { label: "לסקירת מאיה טכנולוגיות", href: SOFTWARE_HOME };
 export const footerBack = { label: "חזרה לכל החטיבות", href: "/#divisions" };
 
 /** Hub cards (large) or the "other topics" row at the end of a topic page (compact). */
@@ -131,7 +131,7 @@ export function topicCards(exclude?: TopicSlug): TopicCard[] {
 
 export const otherTopics = (slug: TopicSlug) => ({
   id: "more-topics",
-  eyebrow: "עוד בבית התוכנה",
+  eyebrow: "עוד במאיה טכנולוגיות",
   title: "תחומים נוספים שאפשר לעבוד איתנו עליהם",
   items: topicCards(slug),
   linkLabel: "למידע נוסף",

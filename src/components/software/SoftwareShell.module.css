@@ -1,13 +1,51 @@
-/* Marker for the software-hub pages */
+/* Hallmark · v2.0.0 · redesign: full · scope: site (/software + 4 topic pages) · theme: brand (deck navy #12182b / #1b2440, accent #2f9be0 family; tokens in globals.css .theme-software) · genre: modern-minimal · copy: verbatim (owner keeps every line; only the section rename) · hero: Stage (/software), Settled (/software/*) · signature: the headline "טכנולוגיה עם גב." on a drifting-light grid · built: the project */
+/* Hallmark · pre-emit critique: P4 H5 E4 S3 R4 V4 · weakest: S, a grid hero fits any tech firm; the bento leads with the four real service photos and the pillars carry the group-backing argument instead of stock claims */
+/* Hallmark · waive 29 · one radial light drifting in the hero only, single brand hue, still under reduced motion · the owner asked for a slow soft glow over the grid in this hero */
+/* Hallmark · dismissed 11 · the 1.03 photo zoom on the bento tiles and project cards is the hover the owner asked for; the container lifts as well */
+/* Hallmark · dismissed 28a · the hero photo carries fetchpriority=high; the about, bento and project images sit below the fold */
+
+/* Marker for the Maya Technologies pages */
 .root {
   min-height: 100vh;
 }
 
 /* In-page anchors must clear the sticky header + sub-tab bar */
 :global(html):has(.root) {
-  scroll-padding-top: calc(var(--header-h) + 60px);
+  scroll-padding-top: calc(var(--header-h) + 72px);
 }
 
-.gap {
-  height: var(--section-gap);
+/* No sideways scroll on these pages (clip, never hidden: keeps sticky working) */
+:global(html):has(.root),
+:global(body):has(.root) {
+  overflow-x: clip;
+}
+
+/* Skip link: first stop on Tab, shown on focus above the sticky header */
+.skip {
+  position: fixed;
+  inset-block-start: 8px;
+  inset-inline-start: 8px;
+  z-index: 200;
+  padding: 12px 20px;
+  border-radius: var(--sw-r-sm);
+  background: var(--sw-ink);
+  color: var(--sw-on-dark);
+  font: var(--sw-label);
+  font-weight: 700;
+  clip-path: inset(50%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.skip:focus,
+.skip:focus-visible {
+  clip-path: none;
+  opacity: 1;
+  pointer-events: auto;
+  outline: 2px solid var(--sw-focus-dark);
+  outline-offset: 2px;
+}
+
+.main:focus {
+  outline: none;
 }

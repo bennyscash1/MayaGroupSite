@@ -1,4 +1,4 @@
-import { Eyebrow } from "../Eyebrow";
+import { Section, SectionHead, base, type Tone } from "./Section";
 import { SwIcon, type SwIconName } from "./SwIcon";
 import styles from "./FlowCards.module.css";
 
@@ -11,42 +11,35 @@ export type FlowCardsProps = {
   subtitle?: string;
   items: readonly ExampleFlow[];
   footnote?: string;
+  tone?: Tone;
 };
 
-/** Example flows: one card per scenario with a numbered vertical step list. */
-export function FlowCards({ id, eyebrow, title, subtitle, items, footnote }: FlowCardsProps) {
+/** Example flows: one panel per scenario with a numbered step track. */
+export function FlowCards({ id, eyebrow, title, subtitle, items, footnote, tone = "surface" }: FlowCardsProps) {
   return (
-    <section id={id} className={styles.section} aria-labelledby={`${id}-title`}>
-      <div className="container">
-        <header className={styles.head}>
-          {eyebrow && <Eyebrow label={eyebrow} />}
-          <h2 id={`${id}-title`} className={styles.title}>
-            {title}
-          </h2>
-          {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
-        </header>
+    <Section id={id} tone={tone} labelledBy={`${id}-title`}>
+      <SectionHead id={`${id}-title`} label={eyebrow} title={title} subtitle={subtitle} />
 
-        <ul className={styles.grid}>
-          {items.map((f) => (
-            <li key={f.title} className={styles.card}>
-              <div className={styles.cardHead}>
-                <span className={styles.icon}>
-                  <SwIcon name={f.icon} size={22} />
-                </span>
-                <h3 className={styles.cardTitle}>{f.title}</h3>
-              </div>
-              <p className={styles.cardText}>{f.text}</p>
-              <ol className={styles.steps}>
-                {f.steps.map((s) => (
-                  <li key={s}>{s}</li>
-                ))}
-              </ol>
-            </li>
-          ))}
-        </ul>
+      <ul className={styles.grid}>
+        {items.map((f) => (
+          <li key={f.title} className={styles.card}>
+            <div className={styles.head}>
+              <span className={base.icon}>
+                <SwIcon name={f.icon} size={22} />
+              </span>
+              <h3 className={styles.title}>{f.title}</h3>
+            </div>
+            <p className={styles.text}>{f.text}</p>
+            <ol className={styles.steps}>
+              {f.steps.map((s) => (
+                <li key={s}>{s}</li>
+              ))}
+            </ol>
+          </li>
+        ))}
+      </ul>
 
-        {footnote && <p className={styles.footnote}>{footnote}</p>}
-      </div>
-    </section>
+      {footnote && <p className={base.footnote}>{footnote}</p>}
+    </Section>
   );
 }
