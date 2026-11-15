@@ -1,0 +1,13 @@
+/* Marker for the software-hub pages */
+.root {
+  min-height: 100vh;
+}
+
+/* In-page anchors must clear the sticky header + sub-tab bar */
+:global(html):has(.root) {
+  scroll-padding-top: calc(var(--header-h) + 60px);
+}
+
+.gap {
+  height: var(--section-gap);
+}

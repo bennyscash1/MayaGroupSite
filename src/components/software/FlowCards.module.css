@@ -1,0 +1,166 @@
+.section {
+  padding-top: var(--section-gap);
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 780px;
+  margin-bottom: 32px;
+}
+
+.title {
+  font: var(--type-h1);
+  font-size: 40px;
+  line-height: 48px;
+  color: var(--navy-900);
+}
+
+.subtitle {
+  font: var(--type-body);
+  color: var(--text-muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-card);
+  border-top: 4px solid var(--blue-600);
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--navy-800);
+  color: var(--sky-300);
+}
+
+.cardTitle {
+  font: var(--type-h3);
+  font-size: 20px;
+  line-height: 26px;
+  color: var(--navy-900);
+}
+
+.cardText {
+  font: var(--type-body);
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--text-muted);
+}
+
+.steps {
+  counter-reset: step;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+}
+
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding-inline-start: 40px;
+  padding-bottom: 14px;
+  font: var(--type-body);
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--navy-900);
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  inset-inline-start: 0;
+  top: -2px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--blue-600) 12%, transparent);
+  color: var(--blue-600);
+  font: 600 12px/1 var(--font-en);
+}
+
+.steps li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 12px;
+  top: 26px;
+  bottom: 0;
+  width: 2px;
+  background: color-mix(in srgb, var(--blue-600) 20%, transparent);
+}
+
+.footnote {
+  margin-top: 24px;
+  font: var(--type-body);
+  color: var(--text-muted);
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding-top: 48px;
+  }
+
+  .head {
+    margin-bottom: 20px;
+    gap: 8px;
+  }
+
+  .title {
+    font: var(--type-h1);
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .cardTitle {
+    font: var(--type-h3);
+  }
+
+  .cardText,
+  .steps li {
+    font: var(--type-body);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

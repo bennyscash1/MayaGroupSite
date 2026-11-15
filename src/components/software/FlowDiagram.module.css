@@ -1,0 +1,185 @@
+.section {
+  padding-top: var(--section-gap);
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 780px;
+  margin-bottom: 40px;
+}
+
+.title {
+  font: var(--type-h1);
+  font-size: 40px;
+  line-height: 48px;
+  color: var(--navy-900);
+}
+
+.subtitle {
+  font: var(--type-body);
+  color: var(--text-muted);
+}
+
+.flow {
+  display: grid;
+  grid-template-columns: repeat(var(--steps), 1fr);
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Connector to the next node (RTL: the next step sits to the left) */
+.step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 31px;
+  right: 80px;
+  left: -8px;
+  height: 2px;
+  background: repeating-linear-gradient(to left, var(--blue-600) 0 6px, transparent 6px 11px);
+  opacity: 0.6;
+}
+
+.node {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 8px;
+  border-radius: var(--radius-full);
+  background: var(--navy-800);
+  color: var(--sky-300);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--blue-600) 14%, transparent);
+}
+
+.num {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  background: var(--blue-600);
+  color: var(--white);
+  font: 600 11px/1 var(--font-en);
+}
+
+.stepTitle {
+  font: var(--type-h3);
+  color: var(--navy-900);
+}
+
+.stepText {
+  font: var(--type-body);
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--text-muted);
+}
+
+.systems {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  margin-top: 40px;
+  padding: 20px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-card);
+}
+
+.systemsTitle {
+  font: var(--type-label);
+  font-weight: 700;
+  color: var(--navy-900);
+}
+
+.systemList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.systemList li {
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font: var(--type-label);
+  color: var(--navy-900);
+  background: var(--bg-page);
+}
+
+@media (max-width: 1100px) {
+  .flow {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    column-gap: 18px;
+    row-gap: 4px;
+    padding-bottom: 28px;
+  }
+
+  .node {
+    grid-row: 1 / span 2;
+    margin-bottom: 0;
+  }
+
+  .stepTitle {
+    align-self: end;
+  }
+
+  /* Vertical connector */
+  .step:not(:last-child)::after {
+    top: 76px;
+    bottom: 6px;
+    right: 31px;
+    left: auto;
+    width: 2px;
+    height: auto;
+    background: repeating-linear-gradient(to bottom, var(--blue-600) 0 6px, transparent 6px 11px);
+  }
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding-top: 48px;
+  }
+
+  .head {
+    margin-bottom: 24px;
+    gap: 8px;
+  }
+
+  .title {
+    font: var(--type-h1);
+  }
+
+  .stepText {
+    font: var(--type-body);
+  }
+
+  .systems {
+    margin-top: 8px;
+    padding: 16px;
+  }
+}

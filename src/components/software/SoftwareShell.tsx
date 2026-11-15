@@ -1,0 +1,56 @@
+import { Header } from "../Header";
+import { Footer } from "../Footer";
+import { Breadcrumb, type Crumb } from "../ui/Breadcrumb";
+import { ContactBand } from "../sections/ContactBand";
+import type { LeadField } from "../ui/LeadForm";
+import type { Closing, LinkItem } from "@/content/site";
+import {
+  footerBack,
+  headerCta,
+  headerNav,
+  SOFTWARE_HOME,
+  softwareLogo,
+  subTabs,
+  subTabsLabel,
+} from "@/content/software/shared";
+import { SubTabs } from "./SubTabs";
+import styles from "./SoftwareShell.module.css";
+
+type Props = {
+  /** Path of the current page (marks the active sub-tab) */
+  path: string;
+  breadcrumb: readonly Crumb[];
+  back: LinkItem;
+  contact: {
+    titleLines: readonly string[];
+    subtitle?: string;
+    fields: readonly LeadField[];
+    consent?: string;
+    submit: string;
+  };
+  contactSurface?: "dark" | "light";
+  closing: Closing;
+  children: React.ReactNode;
+};
+
+/**
+ * Frame shared by the five software-hub pages: software header, breadcrumb,
+ * sticky sub-tab bar, page content, lead form (#contact) and footer.
+ */
+export function SoftwareShell({ path, breadcrumb, back, contact, contactSurface = "dark", closing, children }: Props) {
+  const onHub = path === SOFTWARE_HOME;
+  return (
+    <div className={`theme-software ${styles.root}`}>
+      <div id="top" />
+      <Header logo={softwareLogo} nav={headerNav(onHub)} cta={headerCta} logoHref={onHub ? "/" : SOFTWARE_HOME} variant="light" />
+      <Breadcrumb items={breadcrumb} back={back} />
+      <SubTabs tabs={subTabs} active={path} label={subTabsLabel} />
+      <main>
+        {children}
+        <div className={styles.gap} aria-hidden="true" />
+        <ContactBand id="contact" {...contact} surface={contactSurface} />
+      </main>
+      <Footer id="closing" logo={softwareLogo} logoHref={onHub ? "/" : SOFTWARE_HOME} closing={closing} back={footerBack} />
+    </div>
+  );
+}
