@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ArrowUpLeft, Icon, type IconName } from "../Icons";
+import { contactInfo } from "@/content/site";
 import styles from "./LeadForm.module.css";
 
 export type LeadField = {
@@ -15,6 +16,7 @@ export type LeadField = {
 
 type Props = {
   fields: readonly LeadField[];
+  /** Consent checkbox label; defaults to the shared wording in contactInfo */
   consent?: string;
   submit: string;
   /** Form sits on a navy band (default) or a light section */
@@ -25,7 +27,7 @@ type Props = {
  * Lead form. Static site with no backend yet: submitting only shows a
  * confirmation. TODO: connect to a form service / CRM endpoint.
  */
-export function LeadForm({ fields, consent, submit, surface = "dark" }: Props) {
+export function LeadForm({ fields, consent = contactInfo.consent, submit, surface = "dark" }: Props) {
   const [sent, setSent] = useState(false);
 
   if (sent) {

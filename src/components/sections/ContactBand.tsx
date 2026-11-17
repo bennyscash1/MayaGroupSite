@@ -1,4 +1,6 @@
 import { LeadForm, type LeadField } from "../ui/LeadForm";
+import { ContactDetails } from "../contact/ContactDetails";
+import { ContactMap } from "../contact/ContactMap";
 import styles from "./ContactBand.module.css";
 
 type Props = {
@@ -11,11 +13,11 @@ type Props = {
   surface?: "dark" | "light";
 };
 
-/** Navy lead-form band: title right, divider, form left. */
+/** Lead-form band: title on top, form and map side by side, contact details underneath. */
 export function ContactBand({ id = "contact", titleLines, subtitle, fields, consent, submit, surface = "dark" }: Props) {
   return (
     <section id={id} className={`${styles.band} ${surface === "light" ? styles.light : ""}`} aria-labelledby={`${id}-title`}>
-      <div className={`container ${styles.grid}`}>
+      <div className="container">
         <div className={styles.text}>
           <h2 id={`${id}-title`} className={styles.title}>
             {titleLines.map((line, i) => (
@@ -31,8 +33,11 @@ export function ContactBand({ id = "contact", titleLines, subtitle, fields, cons
             </>
           )}
         </div>
-        <span className={styles.divider} aria-hidden="true" />
-        <LeadForm fields={fields} consent={consent} submit={submit} surface={surface} />
+        <div className={styles.grid}>
+          <LeadForm fields={fields} consent={consent} submit={submit} surface={surface} />
+          <ContactMap />
+        </div>
+        <ContactDetails tone={surface} className={styles.details} />
       </div>
     </section>
   );

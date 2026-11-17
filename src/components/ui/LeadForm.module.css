@@ -38,7 +38,7 @@
 
 .consent {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   margin-top: 4px;
   font: var(--type-label);
@@ -50,7 +50,7 @@
 .consent input {
   width: 18px;
   height: 18px;
-  margin: 0;
+  margin: 1px 0 0;
   accent-color: var(--blue-600);
   flex: 0 0 auto;
 }

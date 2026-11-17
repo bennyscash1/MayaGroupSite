@@ -1,0 +1,81 @@
+/* Contact columns: 4 across on desktop, 2 on tablet, stacked on mobile.
+   Colours follow the surface: light (white / page bg) or dark (navy band). */
+.details {
+  --cd-title: var(--navy-900);
+  --cd-text: var(--navy-900);
+  --cd-icon: var(--blue-600);
+  --cd-hover: var(--blue-600);
+  --cd-line: var(--border);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px 32px;
+}
+
+.dark {
+  --cd-title: var(--white);
+  --cd-text: var(--on-navy-muted);
+  --cd-icon: var(--sky-300);
+  --cd-hover: var(--white);
+  --cd-line: var(--white-25);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.title {
+  font: var(--type-h3);
+  color: var(--cd-title);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px; /* tap target */
+  max-width: 100%;
+  color: var(--cd-text);
+  font: var(--type-body);
+  font-size: 16px;
+  overflow-wrap: anywhere;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: var(--cd-hover);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.dark .link:focus-visible {
+  outline-color: var(--sky-300);
+}
+
+.icon {
+  flex: 0 0 auto;
+  color: var(--cd-icon);
+}
+
+@media (max-width: 1023px) {
+  .details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .details {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+}

@@ -5,13 +5,14 @@
 .grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: clamp(32px, 2rem + 2vw, 72px);
-  align-items: center;
+  gap: var(--sw-gap);
+  align-items: stretch;
+  margin-top: clamp(28px, 1.5rem + 1.5vw, 48px);
 }
 
 @media (min-width: 1024px) {
   .grid {
-    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
 }
 
@@ -43,4 +44,15 @@
   border: 1px solid var(--line);
   border-radius: var(--sw-r-lg);
   background: var(--raised);
+}
+
+.map {
+  border-color: var(--line);
+  border-radius: var(--sw-r-lg);
+}
+
+.details {
+  margin-top: clamp(32px, 1.5rem + 2vw, 56px);
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
 }

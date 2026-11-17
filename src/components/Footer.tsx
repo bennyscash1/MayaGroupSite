@@ -1,5 +1,6 @@
 import { closing as groupClosing, footer, logo as groupLogo, type Closing, type LinkItem, type Logo } from "@/content/site";
 import { ArrowUpLeft } from "./Icons";
+import { ContactDetails } from "./contact/ContactDetails";
 import styles from "./Footer.module.css";
 
 type FooterProps = {
@@ -15,7 +16,7 @@ type FooterProps = {
   surface?: "light" | "dark";
 };
 
-/** Closing call-to-action + footer row (shared white band, as in the mobile designs). */
+/** Closing call-to-action, contact details and footer row (shared white band, as in the mobile designs). */
 export function Footer({
   logo = groupLogo,
   logoHref = "#top",
@@ -43,6 +44,10 @@ export function Footer({
           {closing.button}
           <ArrowUpLeft size={18} />
         </a>
+      </div>
+
+      <div className={`container ${styles.contact}`}>
+        <ContactDetails tone={surface === "dark" ? "dark" : "light"} withHeading />
       </div>
 
       <div className={`container ${styles.bottom}`}>

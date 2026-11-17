@@ -50,6 +50,7 @@
 .dark .accent {
   color: var(--sky-300);
 }
+.dark .contact::before,
 .dark .bottom::before {
   background: var(--white-25);
 }
@@ -87,6 +88,12 @@
   position: relative;
 }
 
+.contact {
+  position: relative;
+  padding-block: 32px;
+}
+
+.contact::before,
 .bottom::before {
   content: "";
   position: absolute;
@@ -125,6 +132,10 @@
     min-width: 0;
     height: 48px;
     border-radius: var(--radius-xl); /* Figma: CTA button 14px */
+  }
+
+  .contact {
+    padding-block: 24px;
   }
 
   .bottom {
