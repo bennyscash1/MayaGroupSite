@@ -18,7 +18,6 @@ export const fund = {
     { label: "הדרך להשקעה", href: "#process" },
   ],
   cta: { label: "לתיאום פגישה", href: "#contact" },
-  breadcrumb: [{ label: "האחים מאיה", href: "/" }, { label: "קרן מאיה" }],
   back: { label: "חזרה לקבוצה", href: "/" },
   hero: {
     overline: "קרן מאיה | מקבוצת האחים מאיה",

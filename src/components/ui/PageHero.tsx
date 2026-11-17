@@ -1,8 +1,12 @@
 import type { ButtonVariant } from "./Button";
 import { Button } from "./Button";
+import { BackPill } from "./BackPill";
+import type { LinkItem } from "@/content/site";
 import styles from "./PageHero.module.css";
 
 export type PageHeroProps = {
+  /** Small back link at the top of the hero (e.g. "חזרה לקבוצה") */
+  back?: LinkItem;
   overline?: string;
   titleLines: readonly string[];
   /** Accent for the 2nd title line */
@@ -23,6 +27,7 @@ export type PageHeroProps = {
  * Mobile (Figma): photo on top fading into navy, copy below.
  */
 export function PageHero({
+  back,
   overline,
   titleLines,
   accent = "sky",
@@ -47,6 +52,7 @@ export function PageHero({
 
       <div className={`container ${styles.inner}`}>
         <div className={styles.content}>
+          {back && <BackPill {...back} />}
           {overline && <p className={styles.overline}>{overline}</p>}
           <h1 id="page-title" className={styles.title}>
             {titleLines.map((line, i) => (

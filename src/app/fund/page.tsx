@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/content/seo";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { PageHero } from "@/components/ui/PageHero";
 import { Intro } from "@/components/ui/Intro";
 import { CardSection } from "@/components/ui/CardSection";
@@ -18,9 +17,8 @@ export default function FundPage() {
     <div className="theme-fund">
       <div id="top" />
       <Header logo={fundLogo} nav={f.nav} cta={f.cta} logoHref="/fund" variant="dark" />
-      <Breadcrumb items={f.breadcrumb} back={f.back} />
       <main>
-        <PageHero {...f.hero} />
+        <PageHero {...f.hero} back={f.back} />
         <Intro id="about" {...f.about} />
         <CardSection id="activities" {...f.activities} />
         <Steps id="process" title={f.process.title} steps={f.process.steps} />

@@ -1,11 +1,10 @@
 /**
  * Software hub (/software + 4 topic pages) — shared content: logo, sub-tabs,
- * header nav, breadcrumbs, contact form and per-page metadata.
+ * header nav, back links, contact form and per-page metadata.
  */
 import type { Metadata } from "next";
 import type { Logo, LinkItem } from "../site";
 import type { LeadField } from "@/components/ui/LeadForm";
-import type { Crumb } from "@/components/ui/Breadcrumb";
 import type { SubTab } from "@/components/software/SubTabs";
 import type { TopicCard } from "@/components/software/TopicCards";
 import type { SwIconName } from "@/components/software/SwIcon";
@@ -15,7 +14,7 @@ export const SOFTWARE_HOME = "/software";
 
 export const softwareLogo: Logo = {
   src: "/images/logos/logo-software.png",
-  alt: "מאיה טכנולוגיות — קבוצת האחים מאיה",
+  alt: "האחים מאיה טכנולוגיות",
   width: 900,
   height: 580,
   stacked: true,
@@ -28,7 +27,7 @@ type Topic = {
   href: string;
   /** Sub-tab label */
   tab: string;
-  /** Full name (breadcrumb, cards) */
+  /** Full name (cards) */
   name: string;
   /** One-line summary for the hub cards */
   summary: string;
@@ -109,13 +108,6 @@ export function headerNav(onHub: boolean): readonly LinkItem[] {
   ];
 }
 export const headerCta: LinkItem = { label: "בואו נדבר", href: "#contact" };
-
-export const hubBreadcrumb: readonly Crumb[] = [{ label: "האחים מאיה", href: "/" }, { label: "מאיה טכנולוגיות" }];
-
-export function topicBreadcrumb(slug: TopicSlug): readonly Crumb[] {
-  const t = topic(slug);
-  return [{ label: "האחים מאיה", href: "/" }, { label: "מאיה טכנולוגיות", href: SOFTWARE_HOME }, { label: t.name }];
-}
 
 export const hubBack = { label: "חזרה לקבוצה", href: "/" };
 export const topicBack = { label: "לסקירת מאיה טכנולוגיות", href: SOFTWARE_HOME };

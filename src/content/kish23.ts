@@ -8,11 +8,6 @@ export const kish23 = {
     { label: "סביבת הפרויקט", href: "#neighborhood" },
   ],
   cta: { label: "לתיאום פגישה", href: "#contact" },
-  breadcrumb: [
-    { label: "דף הבית", href: "/", desktopOnly: true },
-    { label: "בנייה ויזמות נדל״ן", mobileLabel: "בנייה ויזמות", href: "/construction" },
-    { label: "קיש 23" },
-  ],
   back: { label: "חזרה לפרויקטים", href: "/construction#projects" },
   hero: {
     overline: "פתח תקווה | שכונת אחדות",

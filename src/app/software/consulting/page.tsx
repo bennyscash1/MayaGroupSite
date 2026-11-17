@@ -5,7 +5,7 @@ import { SwSteps } from "@/components/software/SwSteps";
 import { CardGrid } from "@/components/software/CardGrid";
 import { TopicCards } from "@/components/software/TopicCards";
 import { consulting as p } from "@/content/software/consulting";
-import { closing, otherTopics, topic, topicBack, topicBreadcrumb, topicMetadata } from "@/content/software/shared";
+import { closing, otherTopics, topic, topicBack, topicMetadata } from "@/content/software/shared";
 
 const SLUG = "consulting";
 
@@ -13,8 +13,8 @@ export const metadata: Metadata = topicMetadata(SLUG, p.meta.title, p.meta.descr
 
 export default function ConsultingPage() {
   return (
-    <SoftwareShell path={topic(SLUG).href} breadcrumb={topicBreadcrumb(SLUG)} back={topicBack} contact={p.contact} closing={closing}>
-      <SwHero {...p.hero} variant="tab" />
+    <SoftwareShell path={topic(SLUG).href} contact={p.contact} closing={closing}>
+      <SwHero {...p.hero} back={topicBack} variant="tab" />
       <CardGrid {...p.areas} tone="surface" />
       <CardGrid {...p.audiences} tone="dark" />
       <CardGrid {...p.engagement} tone="paper" />

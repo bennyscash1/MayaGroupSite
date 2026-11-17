@@ -152,3 +152,7 @@
     width: 100%;
   }
 }
+
+.back {
+  margin-block-end: clamp(20px, 1rem + 1vw, 32px);
+}

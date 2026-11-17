@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/content/seo";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { PageHero } from "@/components/ui/PageHero";
 import { Intro } from "@/components/ui/Intro";
 import { NavyBand } from "@/components/ui/NavyBand";
@@ -16,9 +15,8 @@ export default function InvestmentsPage() {
     <>
       <div id="top" />
       <Header logo={investmentsLogo} nav={v.nav} cta={v.cta} logoHref="/" variant="light" />
-      <Breadcrumb items={v.breadcrumb} back={v.back} />
       <main>
-        <PageHero {...v.hero} />
+        <PageHero {...v.hero} back={v.back} />
         <Intro id="about" {...v.about} />
         <Ventures id="ventures" {...v.ventures} contactHref="#contact" />
         <NavyBand id="partnerships" {...v.partnerships} />

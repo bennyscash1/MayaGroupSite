@@ -11,7 +11,7 @@ import { SwProjects } from "@/components/software/SwProjects";
 import { SwSteps } from "@/components/software/SwSteps";
 import { SwPartners } from "@/components/software/SwPartners";
 import { hub as s } from "@/content/software/hub";
-import { hubBack, hubBreadcrumb, SOFTWARE_HOME, softwareMetadata } from "@/content/software/shared";
+import { hubBack, SOFTWARE_HOME, softwareMetadata } from "@/content/software/shared";
 
 export const metadata: Metadata = softwareMetadata(s.meta.title, s.meta.description, SOFTWARE_HOME);
 
@@ -23,8 +23,8 @@ export const metadata: Metadata = softwareMetadata(s.meta.title, s.meta.descript
  */
 export default function SoftwarePage() {
   return (
-    <SoftwareShell path={SOFTWARE_HOME} breadcrumb={hubBreadcrumb} back={hubBack} contact={s.contact} contactSurface="light" closing={s.closing}>
-      <SwHero {...s.hero} variant="hub" />
+    <SoftwareShell path={SOFTWARE_HOME} contact={s.contact} contactSurface="light" closing={s.closing}>
+      <SwHero {...s.hero} back={hubBack} variant="hub" />
       <Pillars {...s.why} tone="surface" />
       <ChipStrip {...s.standards} tone="paper" />
       <TopicCards {...s.areas} tone="dark" />

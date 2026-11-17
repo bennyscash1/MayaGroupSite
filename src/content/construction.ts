@@ -16,7 +16,6 @@ export const construction = {
     { label: "התחדשות עירונית", href: "#renewal" },
   ],
   cta: { label: "בואו נדבר", href: "#contact" },
-  breadcrumb: [{ label: "האחים מאיה", href: "/" }, { label: "בנייה ויזמות" }],
   back: { label: "חזרה לקבוצה", href: "/" },
   hero: {
     overline: "האחים מאיה | בנייה ויזמות נדל״ן",

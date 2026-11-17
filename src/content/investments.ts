@@ -38,7 +38,6 @@ export const investments = {
     { label: "שיתופי פעולה", href: "#partnerships" },
   ],
   cta: { label: "בואו נדבר", href: "#contact" },
-  breadcrumb: [{ label: "האחים מאיה", href: "/" }, { label: "השקעות וטכנולוגיה" }],
   back: { label: "חזרה לקבוצה", href: "/" },
   hero: {
     overline: "האחים מאיה | השקעות וטכנולוגיה",

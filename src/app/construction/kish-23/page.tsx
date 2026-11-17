@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/content/seo";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { PageHero } from "@/components/ui/PageHero";
 import { Intro } from "@/components/ui/Intro";
 import { Facts } from "@/components/sections/Facts";
@@ -19,9 +18,8 @@ export default function Kish23Page() {
     <>
       <div id="top" />
       <Header logo={constructionLogo} nav={k.nav} cta={k.cta} logoHref="/" variant="light" />
-      <Breadcrumb items={k.breadcrumb} back={k.back} />
       <main>
-        <PageHero {...k.hero} />
+        <PageHero {...k.hero} back={k.back} />
         <Facts items={k.facts} />
         <Intro id="about" {...k.intro} />
         <Gallery id="gallery" {...k.gallery} />

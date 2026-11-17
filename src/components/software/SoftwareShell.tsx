@@ -1,8 +1,7 @@
 import { Header } from "../Header";
 import { Footer } from "../Footer";
-import { Breadcrumb, type Crumb } from "../ui/Breadcrumb";
 import type { LeadField } from "../ui/LeadForm";
-import type { Closing, LinkItem } from "@/content/site";
+import type { Closing } from "@/content/site";
 import {
   footerBack,
   headerCta,
@@ -19,8 +18,6 @@ import styles from "./SoftwareShell.module.css";
 type Props = {
   /** Path of the current page (marks the active sub-tab) */
   path: string;
-  breadcrumb: readonly Crumb[];
-  back: LinkItem;
   contact: {
     titleLines: readonly string[];
     subtitle?: string;
@@ -34,10 +31,10 @@ type Props = {
 };
 
 /**
- * Frame shared by the five Maya Technologies pages: header, breadcrumb,
+ * Frame shared by the five Maya Technologies pages: header,
  * sticky glass sub-tab bar, page content, lead form (#contact) and footer.
  */
-export function SoftwareShell({ path, breadcrumb, back, contact, contactSurface = "dark", closing, children }: Props) {
+export function SoftwareShell({ path, contact, contactSurface = "dark", closing, children }: Props) {
   const onHub = path === SOFTWARE_HOME;
   return (
     <div className={`theme-software ${styles.root}`}>
@@ -46,7 +43,6 @@ export function SoftwareShell({ path, breadcrumb, back, contact, contactSurface 
       </a>
       <div id="top" />
       <Header logo={softwareLogo} nav={headerNav(onHub)} cta={headerCta} logoHref={onHub ? "/" : SOFTWARE_HOME} variant="light" />
-      <Breadcrumb items={breadcrumb} back={back} />
       <SubTabs tabs={subTabs} active={path} label={subTabsLabel} />
       <main id="main" tabIndex={-1} className={styles.main}>
         {children}

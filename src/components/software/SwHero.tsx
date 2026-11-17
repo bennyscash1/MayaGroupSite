@@ -1,9 +1,12 @@
 import { SwButton } from "./SwButton";
+import { BackPill } from "../ui/BackPill";
 import styles from "./SwHero.module.css";
 
 type Action = { label: string; href: string };
 
 export type SwHeroProps = {
+  /** Small back link at the top of the hero (e.g. "חזרה לקבוצה") */
+  back?: Action;
   /** Small plain label above the headline (section or tab name) */
   overline?: string;
   titleLines: readonly string[];
@@ -23,7 +26,7 @@ export type SwHeroProps = {
  * drifting across it (CSS only, still under reduced motion), the headline, one
  * sentence, the actions and a framed photo.
  */
-export function SwHero({ overline, titleLines, body, button, secondary, image, imageMobile, imageAlt = "", caption, variant = "tab" }: SwHeroProps) {
+export function SwHero({ back, overline, titleLines, body, button, secondary, image, imageMobile, imageAlt = "", caption, variant = "tab" }: SwHeroProps) {
   return (
     <section className={`${styles.hero} ${styles[variant]}`} aria-labelledby="page-title">
       <div className={styles.ground} aria-hidden="true">
@@ -33,6 +36,11 @@ export function SwHero({ overline, titleLines, body, button, secondary, image, i
 
       <div className={`container ${styles.inner}`}>
         <div className={styles.copy}>
+          {back && (
+            <div className={styles.back}>
+              <BackPill {...back} />
+            </div>
+          )}
           {overline && <p className={styles.overline}>{overline}</p>}
           <h1 id="page-title" className={styles.title}>
             {titleLines.map((line) => (

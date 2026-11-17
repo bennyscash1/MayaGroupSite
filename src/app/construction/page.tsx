@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/content/seo";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { PageHero } from "@/components/ui/PageHero";
 import { Intro } from "@/components/ui/Intro";
 import { CardSection } from "@/components/ui/CardSection";
@@ -16,9 +15,8 @@ export default function ConstructionPage() {
     <>
       <div id="top" />
       <Header logo={constructionLogo} nav={c.nav} cta={c.cta} logoHref="/" variant="light" />
-      <Breadcrumb items={c.breadcrumb} back={c.back} />
       <main>
-        <PageHero {...c.hero} />
+        <PageHero {...c.hero} back={c.back} />
         <Intro id="about" {...c.about} />
         <CardSection id="projects" {...c.projects} />
         <NavyBand id="renewal" {...c.renewal} />
