@@ -1,4 +1,4 @@
-/* Design tokens — source: Figma/Figma-export/Figma/export/tokens/tokens.md
+/* Design tokens. Source: Figma/Figma-export/Figma/export/tokens/tokens.md
    MOBILE values are exact (Figma variables, "Mobile" text styles, layer CSS of
    frame "01 · דף הבית").
    DESKTOP values are derived from the flat desktop mockup (no layers in Figma);
@@ -17,7 +17,7 @@
   --white-25: rgba(255, 255, 255, 0.25); /* lines + outline buttons on dark */
   --shadow-color: rgba(15, 36, 64, 0.08);
 
-  /* Gold (קרן מאיה) — not a Figma token; sampled from the fund logo artwork */
+  /* Gold (קרן מאיה): not a Figma token; sampled from the fund logo artwork */
   --gold-700: #c37715;
   --gold-500: #f5b73c;
   --gold-200: #fef380;
@@ -36,7 +36,7 @@
   --on-navy-line: var(--white-25);
   --border: var(--border-color);
 
-  /* Primary button (blue in Group mode; gold in Fund mode — designer note on the CTA component) */
+  /* Primary button (blue in Group mode; gold in Fund mode, per designer note on the CTA component) */
   --btn-bg: var(--blue-600);
   --btn-bg-hover: var(--blue-650);
   --btn-fg: var(--white);
@@ -62,7 +62,7 @@
   --type-eyebrow: 500 14px/18px var(--font-he);
   --type-button: 700 15px/20px var(--font-he);
   --type-caption: 400 11px/14px var(--font-he);
-  --type-number: 500 13px/16px var(--font-en);   /* card numbers 01–04 */
+  --type-number: 500 13px/16px var(--font-en);   /* card numbers 01-04 */
   --type-side-label: 500 11px/14px var(--font-en); /* + 0.2em tracking, uppercase */
 
   /* ---------- Shape (exact) ---------- */
@@ -209,7 +209,7 @@
 
 @media (max-width: 900px) {
   :root {
-    /* Mobile type scale — exact, Figma text styles "Mobile" */
+    /* Mobile type scale, exact: Figma text styles "Mobile" */
     --type-display: 800 34px/40px var(--font-he);
     --type-h1: 800 28px/34px var(--font-he);
     --type-h2: 700 22px/28px var(--font-he);
@@ -223,11 +223,11 @@
     --type-caption: 400 11px/14px var(--font-he);
     --type-number: 400 11px/14px var(--font-en); /* = Caption */
 
-    /* Mobile layout — exact */
+    /* Mobile layout, exact */
     --gutter: 24px;
     --header-h: 64px;
     --header-pad: 20px;
-    --section-gap: 48px; /* Figma: 40–56px */
+    --section-gap: 48px; /* Figma: 40-56px */
   }
 }
 

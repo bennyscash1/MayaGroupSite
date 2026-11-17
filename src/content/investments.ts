@@ -1,9 +1,9 @@
-/** Page 04 · השקעות וטכנולוגיה + modal 05 (NIVAT) — text from the Figma mobile frames (authoritative). */
+/** Page 04 · השקעות וטכנולוגיה + modal 05 (NIVAT): text from the Figma mobile frames (authoritative). */
 import type { Logo } from "./site";
 
 export const investmentsLogo: Logo = {
   src: "/images/logos/logo-investments.png",
-  alt: "האחים מאיה — השקעות וטכנולוגיה",
+  alt: "האחים מאיה | השקעות וטכנולוגיה",
   width: 900,
   height: 537,
   stacked: true,
@@ -94,7 +94,7 @@ export const investments = {
         filter: "energy",
         image: "/images/investments/venture-sem-energy.webp",
         alt: "הדמיה של מנוע חשמלי במעבדה",
-        // TODO: no modal content designed — card links to #contact
+        // TODO: no modal content designed; card links to #contact
       },
       {
         id: "aicerv",
@@ -103,7 +103,7 @@ export const investments = {
         filter: "smart",
         image: "/images/investments/venture-aicerv.webp",
         alt: "הדמיה של ברזי מזיגה חכמים",
-        // TODO: no modal content designed — card links to #contact
+        // TODO: no modal content designed; card links to #contact
       },
     ] satisfies Venture[],
   },

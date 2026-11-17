@@ -1,4 +1,4 @@
-/** Page 07 · קרן מאיה — text copied from the Figma mobile frame (authoritative). */
+/** Page 07 · קרן מאיה: text copied from the Figma mobile frame (authoritative). */
 import type { LeadField } from "@/components/ui/LeadForm";
 import type { Logo } from "./site";
 

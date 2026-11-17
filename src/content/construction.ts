@@ -1,10 +1,10 @@
-/** Page 02 · בנייה ויזמות נדל״ן — text copied from the Figma mobile frame (authoritative). */
+/** Page 02 · בנייה ויזמות נדל״ן: text copied from the Figma mobile frame (authoritative). */
 import type { Logo } from "./site";
 
 export const constructionLogo: Logo = {
   // The design shows the horizontal lockup of the construction logo = the group header logo
   src: "/images/logo-main.png",
-  alt: "האחים מאיה — בנייה ויזמות נדל״ן",
+  alt: "האחים מאיה | בנייה ויזמות נדל״ן",
   width: 335,
   height: 95,
 };

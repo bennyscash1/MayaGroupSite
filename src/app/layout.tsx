@@ -20,7 +20,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  ...pageMetadata("האחים מאיה | רואים רחוק. בונים אחרת.", "קבוצת האחים מאיה — נדל״ן, טכנולוגיה והשקעות.", "/"),
+  ...pageMetadata("האחים מאיה | רואים רחוק. בונים אחרת.", "קבוצת האחים מאיה: נדל״ן, טכנולוגיה והשקעות.", "/"),
 };
 
 export const viewport: Viewport = {

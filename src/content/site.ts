@@ -24,7 +24,7 @@ export type Closing = {
 
 export const logo: Logo = {
   src: "/images/logo-main.png", // PNG only: no vector logo exists in the Figma file
-  alt: "האחים מאיה — בנייה ויזמות נדל״ן",
+  alt: "האחים מאיה | בנייה ויזמות נדל״ן",
   width: 335,
   height: 95,
 };
@@ -53,7 +53,7 @@ export type Division = {
   brand: string;
   title: string;
   href: string;
-  /** Desktop card image (logo baked in — placeholder until clean photos are exported) */
+  /** Desktop card image (logo baked in; placeholder until clean photos are exported) */
   image: string;
   /** Mobile thumbnail */
   thumb: string;

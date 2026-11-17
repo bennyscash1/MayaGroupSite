@@ -30,7 +30,7 @@ export function Showcase({ id, eyebrow, title, items, linkLabel }: Props) {
         <ul className={styles.list}>
           {items.map((p) => (
             <li key={p.id} className={styles.project}>
-              <a href={p.url} target="_blank" rel="noopener noreferrer" className={styles.frame} aria-label={`${p.name} — ${linkLabel}`}>
+              <a href={p.url} target="_blank" rel="noopener noreferrer" className={styles.frame} aria-label={`${p.name}: ${linkLabel}`}>
                 <span className={styles.bar} aria-hidden="true">
                   <span className={styles.dots}>
                     <i />

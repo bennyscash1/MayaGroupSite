@@ -1,6 +1,6 @@
 type IconProps = { size?: number; className?: string };
 
-/** Up-left arrow (↖) — the "forward" direction in an RTL layout. */
+/** Up-left arrow (↖): the "forward" direction in an RTL layout. */
 export function ArrowUpLeft({ size = 16, className }: IconProps) {
   return (
     <svg
@@ -60,7 +60,7 @@ export function MenuIcon({ open, size = 28 }: { open: boolean; size?: number }) 
 
 /**
  * Maya building mark (towers + "M"), rebuilt as vectors from the
- * "האחים מאיה – בנייה ויזמות נדל"ן" logo. Single colour via currentColor.
+ * "האחים מאיה | בנייה ויזמות נדל"ן" logo. Single colour via currentColor.
  */
 export function BuildingMark({ className, title }: { className?: string; title?: string }) {
   return (

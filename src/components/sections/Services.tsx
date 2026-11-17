@@ -3,7 +3,7 @@ import styles from "./Services.module.css";
 
 type Props = { id: string; title: string; items: readonly { icon: IconName; title: string; text: string }[] };
 
-/** "תחומי הפיתוח" — rows on mobile, 3 centred columns on desktop. */
+/** "תחומי הפיתוח": rows on mobile, 3 centred columns on desktop. */
 export function Services({ id, title, items }: Props) {
   return (
     <section id={id} className={styles.section} aria-labelledby={`${id}-title`}>

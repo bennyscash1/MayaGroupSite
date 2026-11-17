@@ -1,4 +1,4 @@
-/** Page 03 · פרויקט קיש 23 — text from the Figma mobile frame (authoritative). */
+/** Page 03 · פרויקט קיש 23: text from the Figma mobile frame (authoritative). */
 import type { LeadField } from "@/components/ui/LeadForm";
 
 export const kish23 = {

@@ -11,7 +11,7 @@ type HeaderProps = {
   cta?: LinkItem;
   /** Where the logo links to ("#top" on the homepage, "/" elsewhere) */
   logoHref?: string;
-  /** Division pages use a light header (desktop mockups 02–06); the homepage uses the blue one */
+  /** Division pages use a light header (desktop mockups 02-06); the homepage uses the blue one */
   variant?: "group" | "light" | "dark";
 };
 

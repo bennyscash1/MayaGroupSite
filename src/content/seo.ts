@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
-/** Production URL — used for absolute links in link previews (WhatsApp, Facebook, LinkedIn…). */
+/** Production URL, used for absolute links in link previews (WhatsApp, Facebook, LinkedIn…). */
 export const SITE_URL = "https://maya-group-site.vercel.app";
 export const SITE_NAME = "קבוצת האחים מאיה";
 
 /** Main logo preview (src/app/opengraph-image.png). Listed explicitly: a page-level
  *  openGraph object replaces the one inherited from the root, image included. */
-const OG_IMAGE = { url: "/opengraph-image.png", width: 1200, height: 630, alt: "האחים מאיה — בנייה ויזמות נדל״ן" };
+const OG_IMAGE = { url: "/opengraph-image.png", width: 1200, height: 630, alt: "האחים מאיה | בנייה ויזמות נדל״ן" };
 
 /**
  * Per-page metadata with matching Open Graph / Twitter tags.

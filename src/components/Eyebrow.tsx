@@ -2,7 +2,7 @@ import styles from "./Eyebrow.module.css";
 
 type Props = { number?: string; label: string; tone?: "dark" | "light"; className?: string };
 
-/** Section label: "—— 02 / אודות הקבוצה" (number optional: "—— אודות החטיבה") */
+/** Section label: line + "02 / אודות הקבוצה" (number optional: line + "אודות החטיבה") */
 export function Eyebrow({ number, label, tone = "dark", className = "" }: Props) {
   return (
     <p className={`${styles.eyebrow} ${tone !== "dark" ? styles[tone] : ""} ${className}`}>

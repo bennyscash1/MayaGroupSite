@@ -7,7 +7,7 @@ export function Divisions() {
   return (
     <section id="divisions" className={styles.section} aria-labelledby="divisions-title">
       <div className="container">
-        {/* Heading is shown on mobile only — the desktop design opens with the cards */}
+        {/* Heading is shown on mobile only; the desktop design opens with the cards */}
         <div className={styles.heading}>
           <Eyebrow number={divisionsSection.eyebrowNumber} label={divisionsSection.eyebrow} />
           <h2 id="divisions-title" className={styles.title}>

@@ -1,5 +1,5 @@
 /**
- * Software hub (/software + 4 topic pages) — shared content: logo, sub-tabs,
+ * Software hub (/software + 4 topic pages): shared content: logo, sub-tabs,
  * header nav, back links, contact form and per-page metadata.
  */
 import type { Metadata } from "next";
@@ -42,7 +42,7 @@ export const topics: readonly Topic[] = [
     href: "/software/business-systems",
     tab: "מערכות לבעלי עסקים",
     name: "מערכות לבעלי עסקים",
-    summary: "מערכת ניהול שנבנית סביב העסק שלכם: לקוחות, מכירות, הצעות מחיר, סליקה, מלאי ודוחות — במקום אחד.",
+    summary: "מערכת ניהול שנבנית סביב העסק שלכם: לקוחות, מכירות, הצעות מחיר, סליקה, מלאי ודוחות, במקום אחד.",
     icon: "layers",
     hero: {
       image: "/images/software/business-systems/hero.webp",
@@ -55,7 +55,7 @@ export const topics: readonly Topic[] = [
     href: "/software/automation-ai",
     tab: "אוטומציות ו-AI",
     name: "אוטומציות עסקיות ו-AI",
-    summary: "סוכני AI ואוטומציות שעובדים על המערכות הקיימות שלכם — פחות עבודה ידנית, יותר זמן לעבודה שחשובה.",
+    summary: "סוכני AI ואוטומציות שעובדים על המערכות הקיימות שלכם. פחות עבודה ידנית, יותר זמן לעבודה שחשובה.",
     icon: "bot",
     hero: {
       image: "/images/software/automation-ai/hero.webp",
@@ -68,7 +68,7 @@ export const topics: readonly Topic[] = [
     href: "/software/telephony",
     tab: "טלפוניה ו-IVR",
     name: "טלפוניה ו-IVR חכם",
-    summary: "תפריטים קוליים, קווי מידע, תשלומים והרשמה בטלפון — נגישים מכל מכשיר, כולל טלפון כשר, ומחוברים ל-CRM.",
+    summary: "תפריטים קוליים, קווי מידע, תשלומים והרשמה בטלפון, נגישים מכל מכשיר, כולל טלפון כשר, ומחוברים ל-CRM.",
     icon: "headset",
     hero: {
       image: "/images/software/telephony/hero.webp",
@@ -81,7 +81,7 @@ export const topics: readonly Topic[] = [
     href: "/software/consulting",
     tab: "ייעוץ",
     name: "ייעוץ טכנולוגי",
-    summary: "ייעוץ בסייבר, QA, ארכיטקטורה, פרטיות ונגישות — לעסקים, לרשויות מקומיות ולגופים ציבוריים.",
+    summary: "ייעוץ בסייבר, QA, ארכיטקטורה, פרטיות ונגישות, לעסקים, לרשויות מקומיות ולגופים ציבוריים.",
     icon: "compass",
     hero: {
       image: "/images/software/consulting/hero.webp",

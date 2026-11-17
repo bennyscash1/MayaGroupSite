@@ -12,7 +12,7 @@
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
-/* Primary — blue (Group mode) */
+/* Primary: blue (Group mode) */
 .primary {
   background: var(--btn-bg);
   color: var(--btn-fg);

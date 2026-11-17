@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 /**
  * Landing-page style reveal: every text block in <main> and the footer fades in and
- * rises slightly the first time it scrolls into view — once, never again.
+ * rises slightly the first time it scrolls into view: once, never again.
  *
  * Units: headings, paragraphs, list items, captions, forms and standalone buttons/links. If a unit sits
  * inside another unit (e.g. a <p> inside a card <li>), only the outer one animates,
