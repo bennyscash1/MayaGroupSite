@@ -12,7 +12,7 @@ export const kish23 = {
   hero: {
     overline: "פתח תקווה | שכונת אחדות",
     titleLines: ["קיש 23", "בית חדש. פרק חדש."],
-    body: "פרויקט מגורים חדש, 4 חדרים, שתי דירות בקומה.",
+    body: "פרויקט מגורים חדש, 4 חדרים, שתי דירות בקומה. מבית קבוצת האחים מאיה, עם גב לאורך כל הדרך.",
     button: { label: "לתיאום פגישה", href: "#contact" },
     image: "/images/kish-23/hero-building-mobile.webp",
     caption: "הדמיה להמחשה בלבד",

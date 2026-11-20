@@ -74,18 +74,8 @@
 }
 
 .groupName {
-  display: flex;
-  align-items: center;
-  gap: 20px;
   margin-top: 28px;
   font: var(--type-subline);
-}
-
-.rule {
-  display: inline-block;
-  width: 96px;
-  height: 1.5px;
-  background: var(--on-navy);
 }
 
 .tagline {
@@ -159,8 +149,7 @@
 
   .sideLabel,
   .scroll,
-  .circle,
-  .rule {
+  .circle {
     display: none;
   }
 

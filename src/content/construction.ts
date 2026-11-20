@@ -20,7 +20,7 @@ export const construction = {
   hero: {
     overline: "האחים מאיה | בנייה ויזמות נדל״ן",
     titleLines: ["בונים בתים.", "יוצרים שייכות."],
-    body: "יזמות, בנייה והתחדשות עירונית. ליווי אישי, חשיבה לטווח ארוך.",
+    body: "יזמות, בנייה והתחדשות עירונית עם גב של קבוצה. ליווי אישי, חשיבה לטווח ארוך.",
     button: { label: "לפרויקטים שלנו", href: "#projects", icon: "down" as const },
     image: "/images/construction/hero-mobile.webp",
     caption: "תמונות אווירה להמחשה",

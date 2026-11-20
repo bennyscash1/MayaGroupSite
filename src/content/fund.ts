@@ -22,7 +22,7 @@ export const fund = {
   hero: {
     overline: "קרן מאיה | מקבוצת האחים מאיה",
     titleLines: ["אנשים. הזדמנויות.", "חיבורים עם ערך."],
-    body: "מחברים משקיעים להזדמנויות בנדל״ן ובטכנולוגיה.",
+    body: "מחברים משקיעים להזדמנויות בנדל״ן ובטכנולוגיה, עם הגב של קבוצת האחים מאיה.",
     button: { label: "להכיר את האפשרויות", href: "#activities", icon: "down" as const, variant: "primary" as const },
     image: "/images/fund/hero-mobile.webp",
     caption: "תמונת אווירה להמחשה",

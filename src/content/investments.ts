@@ -42,7 +42,7 @@ export const investments = {
   hero: {
     overline: "האחים מאיה | השקעות וטכנולוגיה",
     titleLines: ["מזהים פוטנציאל.", "מקדמים את המחר."],
-    body: "מחברים יזמות, טכנולוגיה והזדמנויות.",
+    body: "מחברים יזמות, טכנולוגיה והזדמנויות. שותף עם גב, לאורך הדרך.",
     button: { label: "להכיר את המיזמים", href: "#ventures", icon: "down" as const },
     image: "/images/investments/hero.webp",
     caption: "תמונת אווירה להמחשה",

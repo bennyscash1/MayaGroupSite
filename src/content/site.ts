@@ -40,7 +40,7 @@ export const contactCta = { label: "בואו נדבר", href: "#contact" } as co
 export const hero = {
   groupName: "קבוצת האחים מאיה",
   titleLines: ["רואים רחוק.", "בונים אחרת."],
-  tagline: "נדל״ן. טכנולוגיה. השקעות.",
+  tagline: "נדל״ן. טכנולוגיה. השקעות. הכול עם גב אחד.",
   sideLabel: "MAYA GROUP / A SHARED VISION",
   mobileCta: "גלו את החטיבות",
   image: "/images/hero.webp",

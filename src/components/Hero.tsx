@@ -23,10 +23,7 @@ export function Hero() {
             <span>{hero.titleLines[0]}</span>
             <span className={styles.accent}>{hero.titleLines[1]}</span>
           </h1>
-          <p className={styles.groupName}>
-            {hero.groupName}
-            <span className={styles.rule} aria-hidden="true" />
-          </p>
+          <p className={styles.groupName}>{hero.groupName}</p>
           <p className={styles.tagline}>{hero.tagline}</p>
 
           <a href="#divisions" className={styles.circle} aria-label={hero.mobileCta}>
